@@ -1,622 +1,274 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Pablo Rodrigo Ribeiro — Engenharia Civil</title>
-<meta content="Pablo Rodrigo Ribeiro — Engenharia Civil: portfólio técnico de Engenheiro Civil Sênior — pavimentação, rodovias, dimensionamento MeDiNa/HDM-4 e perícia judicial." name="description"/>
-<meta content="Pablo Rodrigo Ribeiro — Engenharia Civil" property="og:title"/>
-<meta content="Portfólio técnico — pavimentação, rodovias e perícia judicial em engenharia civil." property="og:description"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<meta name="description" content="Engenharia civil, obras e perícia técnica. Mais de 25 anos entre projeto, execução e gestão, com uma rede de parceiros e fornecedores especializados."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-  :root{
-    --paper:#EDF1F6;
-    --paper-dark:#E2E8F0;
-    --ink:#1B2A4A;
-    --ink-soft:#5B6472;
-    --rust:#E8622A;
-    --steel:#1B2A4A;
-    --line:#D3DBE6;
-    --line-soft:#E2E8F0;
-    --card:#FFFFFF;
-    --shadow:0 4px 18px rgba(27,42,74,0.08);
-    --max:1040px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
-    font-size:16px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3{
-    font-family:'Archivo', sans-serif;
-    font-weight:800;
-    letter-spacing:-0.01em;
-    margin:0;
-  }
-  .mono{font-family:'IBM Plex Mono', monospace;}
-  a{color:inherit;}
+:root{
+  --ink:#0F172A;
+  --ink-2:#111C33;
+  --paper:#FFFFFF;
+  --mist:#F1F5F9;
+  --signal:#2563EB;
+  --signal-deep:#1D4ED8;
+  --signal-soft:#E6F1FB;
+  --slate:#1E293B;
+  --steel:#64748B;
+  --line:#E2E8F0;
+  --line-dark:#243149;
+  --radius:14px;
+  --wrap:1120px;
+  --font-display:'Manrope',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:var(--font-body);color:var(--slate);background:var(--paper);line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px;}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal);font-weight:500;}
+h1,h2,h3{font-family:var(--font-display);color:var(--slate);margin:0;}
+h1{font-size:clamp(32px,5vw,56px);font-weight:800;line-height:1.08;letter-spacing:-.02em;}
+h2{font-size:clamp(24px,3.2vw,36px);font-weight:800;letter-spacing:-.01em;}
+h3{font-size:19px;font-weight:700;}
+p{margin:0;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:10px;font-family:var(--font-body);font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid transparent;transition:transform .15s ease,background .15s ease;}
+.btn:hover{transform:translateY(-1px);}
+.btn-primary{background:var(--signal);color:#fff;}
+.btn-primary:hover{background:var(--signal-deep);}
+.btn-ghost-dark{border-color:rgba(255,255,255,.28);color:#fff;}
+.btn-ghost-dark:hover{background:rgba(255,255,255,.08);}
+.btn-ghost-light{border-color:var(--line);color:var(--slate);}
+.btn-ghost-light:hover{background:var(--mist);}
 
-  /* ---------- Ruler / scroll progress ---------- */
-  #ruler{
-    position:fixed; top:0; left:0; right:0; z-index:50;
-    background:var(--paper);
-    border-bottom:1px solid var(--line);
-    display:flex; align-items:center; gap:10px;
-    padding:6px 14px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    color:var(--ink-soft);
-  }
-  .ruler-track{
-    position:relative; flex:1; height:16px;
-    background:#3B4048;
-    border-radius:2px;
-    border-top:2px solid #F4F1E8;
-    border-bottom:2px solid #F4F1E8;
-    overflow:hidden;
-  }
-  .ruler-track::before{
-    content:"";
-    position:absolute; top:50%; left:0; right:0; height:2px;
-    transform:translateY(-50%);
-    background-image:repeating-linear-gradient(90deg, #F2C94C 0, #F2C94C 9px, transparent 9px, transparent 18px);
-  }
-  .ruler-fill{
-    position:absolute; top:0; left:0; bottom:0; width:0%;
-    background:var(--rust);
-    opacity:0.22;
-    transition:width .08s linear;
-  }
-  .ruler-marker{
-    position:absolute; top:50%; left:0%;
-    width:30px; height:18px;
-    transform:translate(-50%,-50%);
-    background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 36'%3E%3Crect x='2' y='8' width='34' height='16' rx='1.5' fill='%23E8622A'/%3E%3Crect x='36' y='14' width='16' height='10' rx='1.5' fill='%23E8622A'/%3E%3Crect x='40' y='16' width='7' height='5' fill='%23F4F1E8'/%3E%3Crect x='2' y='8' width='34' height='4' fill='%23F4F1E8' opacity='0.35'/%3E%3Ccircle cx='12' cy='27' r='5.5' fill='%232B2E33'/%3E%3Ccircle cx='12' cy='27' r='2' fill='%23F4F1E8'/%3E%3Ccircle cx='29' cy='27' r='5.5' fill='%232B2E33'/%3E%3Ccircle cx='29' cy='27' r='2' fill='%23F4F1E8'/%3E%3Ccircle cx='45' cy='27' r='5.5' fill='%232B2E33'/%3E%3Ccircle cx='45' cy='27' r='2' fill='%23F4F1E8'/%3E%3C/svg%3E");
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
-    filter:drop-shadow(0 0 2px rgba(232,98,42,0.55));
-    transition:left .08s linear;
-    z-index:2;
-  }
-  #rulerKm{ white-space:nowrap; min-width:84px; text-align:right; font-weight:500;}
-  #rulerLabel{white-space:nowrap;}
+/* ===== nav ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;transition:background .25s ease,padding .25s ease,box-shadow .25s ease;}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{font-family:var(--font-display);font-weight:800;font-size:16px;color:#fff;letter-spacing:-.01em;}
+.nav-logo span{color:var(--signal);}
+.nav-links{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
+.nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,.82);text-decoration:none;}
+.nav-links a:hover{color:#fff;}
+.nav.scrolled{background:rgba(15,23,42,.92);backdrop-filter:blur(10px);padding:12px 0;box-shadow:0 1px 0 rgba(255,255,255,.06);}
+.nav-cta{display:none;}
+@media(min-width:720px){.nav-cta{display:inline-flex;padding:9px 18px;font-size:13px;}}
+@media(max-width:720px){.nav-links{display:none;}}
 
-  /* ---------- Hero ---------- */
-  .hero{
-    position:relative;
-    padding:96px 24px 64px;
-    overflow:hidden;
-    border-bottom:1px solid var(--line);
-  }
-  .hero-bg{
-    position:absolute; inset:0; z-index:0; opacity:0.5;
-    pointer-events:none;
-  }
-  .hero-content{ position:relative; z-index:1; max-width:var(--max); margin:0 auto;}
-  .masthead{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px; letter-spacing:.16em; text-transform:uppercase;
-    color:var(--ink-soft); margin:0 0 22px; font-weight:500;
-  }
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px; letter-spacing:.12em; text-transform:uppercase;
-    color:var(--rust); margin:0 0 18px; font-weight:500;
-  }
-  .hero h1{
-    font-size:clamp(40px, 7vw, 74px);
-    line-height:0.98;
-    margin-bottom:18px;
-  }
-  .hero .role{
-    font-size:clamp(16px, 2.4vw, 20px);
-    color:var(--ink-soft);
-    max-width:640px;
-    margin:0 0 28px;
-  }
-  .hero-meta{
-    display:flex; flex-wrap:wrap; gap:10px 22px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12.5px; color:var(--ink);
-    margin-bottom:36px;
-  }
-  .hero-meta span{ display:flex; align-items:center; gap:6px;}
-  .hero-meta span::before{
-    content:""; width:6px; height:6px; background:var(--rust); display:inline-block;
-  }
-  .hero-actions{ display:flex; flex-wrap:wrap; gap:14px;}
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    padding:13px 22px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:13px; letter-spacing:.03em; text-transform:uppercase;
-    text-decoration:none;
-    border:1.5px solid var(--ink);
-    transition:background .15s ease, color .15s ease, border-color .15s ease;
-  }
-  .btn-primary{ background:var(--ink); color:var(--paper);}
-  .btn-primary:hover{ background:var(--rust); border-color:var(--rust);}
-  .btn-ghost{ background:transparent; color:var(--ink);}
-  .btn-ghost:hover{ border-color:var(--rust); color:var(--rust);}
+/* ===== hero ===== */
+.hero{position:relative;background:linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 100%);color:#fff;padding:168px 0 120px;overflow:hidden;}
+.hero-contours{position:absolute;inset:0;opacity:.35;pointer-events:none;}
+.hero-inner{position:relative;z-index:2;max-width:780px;}
+.hero .eyebrow{color:#8FC2FF;margin-bottom:18px;display:block;}
+.hero h1{color:#fff;margin-bottom:20px;}
+.hero-lead{font-size:18px;color:rgba(255,255,255,.72);max-width:600px;margin-bottom:36px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px;}
+.hero-meta{display:flex;gap:28px;flex-wrap:wrap;font-family:var(--font-mono);font-size:12.5px;color:rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.14);padding-top:22px;}
 
-  /* pavement cross-section svg small accent */
-  .xsec{ max-width:480px; margin-top:8px;}
-  .xsec text{ font-family:'IBM Plex Mono', monospace; font-size:10px; fill:var(--ink-soft);}
+/* ===== sections ===== */
+.section{padding:96px 0;}
+.section.alt{background:var(--mist);}
+.section-head{max-width:640px;margin:0 0 48px;}
+.section-head .eyebrow{display:block;margin-bottom:12px;}
+.section-head p{color:var(--steel);font-size:16px;margin-top:14px;}
 
-  /* ---------- Sections ---------- */
-  .section{ padding:72px 24px; border-bottom:1px solid var(--line);}
-  .section.alt{ background:var(--paper-dark);}
-  .section-inner{ max-width:var(--max); margin:0 auto;}
-  .section-head{
-    display:flex; align-items:baseline; gap:16px;
-    margin-bottom:34px;
-    padding-bottom:14px;
-    border-bottom:2px solid var(--ink);
-  }
-  .sheet-no{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px; color:var(--rust); white-space:nowrap;
-  }
-  .section-head h2{ font-size:clamp(24px,3.4vw,32px);}
+/* ===== sobre ===== */
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+.sobre-photo{border-radius:16px;overflow:hidden;position:relative;}
+.sobre-photo img{width:100%;height:100%;object-fit:cover;}
+.sobre-badge{position:absolute;bottom:16px;left:16px;background:rgba(15,23,42,.86);color:#fff;font-family:var(--font-mono);font-size:11.5px;padding:8px 14px;border-radius:8px;backdrop-filter:blur(6px);}
+.sobre-copy p{font-size:16px;color:var(--slate);margin-bottom:16px;}
+.sobre-copy p:last-child{margin-bottom:0;}
+@media(max-width:860px){.sobre-grid{grid-template-columns:1fr;}}
 
-  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
-  .reveal.in-view{ opacity:1; transform:translateY(0);}
+/* ===== serviços ===== */
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.service-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px -20px rgba(15,23,42,.25);border-color:transparent;}
+.service-icon{width:44px;height:44px;border-radius:10px;background:var(--signal-soft);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:20px;}
+.service-card h3{margin-bottom:8px;}
+.service-card p{color:var(--steel);font-size:14.5px;}
+@media(max-width:900px){.services-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.services-grid{grid-template-columns:1fr;}}
 
-  .lead{ font-size:18px; max-width:760px; color:var(--ink); text-align:justify; text-justify:inter-word; -webkit-hyphens:auto; hyphens:auto;}
-  .lead + .lead{ margin-top:16px;}
+/* ===== galeria wrapper (reuses existing accordion markup/classes) ===== */
+.gallery-groups{display:flex;flex-direction:column;gap:10px;}
+.gallery-group{border:1px solid var(--line);border-radius:12px;background:var(--paper);overflow:hidden;}
+.gallery-group-title{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;background:none;border:0;text-align:left;font-family:var(--font-body);font-size:15.5px;font-weight:600;color:var(--slate);cursor:pointer;}
+.gallery-group-title:hover{background:var(--mist);}
+.gallery-group-count{font-family:var(--font-mono);font-size:12px;color:var(--steel);font-weight:400;white-space:nowrap;margin-left:auto;margin-right:14px;}
+.gallery-group-icon{width:18px;height:18px;position:relative;flex-shrink:0;}
+.gallery-group-icon::before,.gallery-group-icon::after{content:'';position:absolute;background:var(--steel);top:50%;left:50%;transform:translate(-50%,-50%);transition:transform .2s ease;}
+.gallery-group-icon::before{width:12px;height:2px;}
+.gallery-group-icon::after{width:2px;height:12px;}
+.gallery-group.open .gallery-group-icon::after{transform:translate(-50%,-50%) rotate(90deg) scaleY(0);}
+.gallery-group-body{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;padding:4px 22px 22px;}
+.gallery-item{position:relative;border-radius:8px;overflow:hidden;cursor:pointer;background:var(--mist);aspect-ratio:4/3;}
+.gallery-item img,.gallery-item video{width:100%;height:100%;object-fit:cover;}
+.gallery-item .cap{display:none;}
+.gallery-item video{cursor:default;}
 
-  /* Legend / skills */
-  .legend-grid{
-    display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:18px;
-  }
-  .legend-cell{
-    padding:24px 26px; border-radius:14px;
-    background:var(--card);
-    box-shadow:var(--shadow);
-  }
-  .legend-cell h3{
-    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
-    text-transform:uppercase; letter-spacing:.06em; color:var(--rust);
-    margin-bottom:10px; font-weight:500;
-  }
-  .legend-cell ul{ margin:0; padding-left:18px; font-size:14.5px; color:var(--ink-soft);}
-  .legend-cell li{ margin-bottom:6px;}
+/* ===== diferenciais (dark) ===== */
+.dif-section{background:var(--ink);color:#fff;}
+.dif-section .section-head p{color:rgba(255,255,255,.6);}
+.dif-list{display:grid;grid-template-columns:1fr 1fr;gap:16px 40px;}
+.dif-item{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.1);}
+.dif-check{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:rgba(37,99,235,.22);color:#8FC2FF;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;}
+.dif-item p{font-size:15.5px;color:rgba(255,255,255,.86);}
+@media(max-width:700px){.dif-list{grid-template-columns:1fr;}}
 
-  /* Km log / projects */
-  .km-log{ display:flex; flex-direction:column; gap:14px;}
-  .km-row{
-    display:grid;
-    grid-template-columns:120px 1fr;
-    gap:20px;
-    padding:22px 24px;
-    border-radius:14px;
-    background:var(--card);
-    box-shadow:var(--shadow);
-    align-items:start;
-  }
-  .km-tag{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:13px; color:var(--rust); font-weight:500;
-    padding-top:2px;
-  }
-  .km-body h3{ font-size:17px; margin-bottom:4px;}
-  .km-meta{
-    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft);
-    margin-bottom:8px; display:flex; flex-wrap:wrap; gap:4px 14px;
-  }
-  .km-desc{ font-size:14.5px; color:var(--ink); max-width:680px; text-align:justify; text-justify:inter-word; -webkit-hyphens:auto; hyphens:auto;}
+/* ===== números ===== */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.stat-card{text-align:left;}
+.stat-num{font-family:var(--font-display);font-weight:800;font-size:clamp(32px,4vw,44px);color:var(--signal);letter-spacing:-.02em;}
+.stat-label{font-size:14px;color:var(--steel);margin-top:6px;}
+@media(max-width:760px){.stats-grid{grid-template-columns:1fr 1fr;}}
 
-  /* Docencia / pericia cards */
-  .card-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px;}
-  .card{ border-radius:14px; padding:26px; background:var(--card); box-shadow:var(--shadow);}
-  .card h3{ font-size:18px; margin-bottom:10px;}
-  .card p{ font-size:14.5px; color:var(--ink-soft); margin:0 0 8px; text-align:justify; text-justify:inter-word; -webkit-hyphens:auto; hyphens:auto;}
-  .card .tag{
-    display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:11px;
-    color:var(--rust); border:1px solid var(--rust); border-radius:20px; padding:3px 10px; margin-bottom:14px;
-    text-transform:uppercase; letter-spacing:.04em;
-  }
+/* ===== depoimentos ===== */
+.testi-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:20px;}
+.testi-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+.testi-quote{padding:28px 26px;display:flex;flex-direction:column;gap:16px;height:100%;}
+.testi-quote p{font-size:15px;color:var(--slate);line-height:1.65;}
+.testi-quote .who{font-family:var(--font-mono);font-size:12px;color:var(--steel);margin-top:auto;}
+.testi-photo{position:relative;aspect-ratio:4/5;}
+.testi-photo img{width:100%;height:100%;object-fit:cover;}
+.testi-photo .who{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(15,23,42,.82),transparent);color:#fff;padding:16px;font-family:var(--font-mono);font-size:12px;}
+.testi-badge{display:inline-flex;align-items:center;gap:8px;background:var(--signal-soft);color:var(--signal-deep);font-family:var(--font-mono);font-size:12px;padding:6px 12px;border-radius:20px;margin-bottom:14px;align-self:flex-start;}
+@media(max-width:900px){.testi-grid{grid-template-columns:1fr;}.testi-photo{aspect-ratio:16/10;}}
 
-  /* Acervo tecnico stats */
-  .stat-grid{
-    display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; margin:26px 0;
-  }
-  .stat-card{
-    border:1px solid var(--line); border-radius:14px; padding:20px 18px;
-    background:var(--card); text-align:center;
-  }
-  .stat-number{
-    font-family:'IBM Plex Mono', monospace; font-size:30px; font-weight:600;
-    color:var(--rust); line-height:1.1;
-  }
-  .stat-label{
-    font-size:12px; color:var(--ink-soft); margin-top:6px; letter-spacing:.02em;
-  }
-  .acervo-note{
-    margin-top:22px; padding:14px 18px; border:1.5px dashed var(--line); border-radius:12px;
-    font-size:13px; color:var(--ink-soft);
-  }
+/* ===== CTA ===== */
+.cta-section{background:linear-gradient(135deg,var(--ink) 0%,#132a52 100%);color:#fff;text-align:center;padding:100px 0;}
+.cta-section h2{color:#fff;max-width:640px;margin:0 auto 16px;}
+.cta-section p{color:rgba(255,255,255,.68);max-width:520px;margin:0 auto 32px;font-size:16.5px;}
 
-  /* Formacao */
-  .edu-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;}
-  .edu-list li{
-    display:flex; justify-content:space-between; gap:20px;
-    padding:18px 22px; border-radius:14px;
-    background:var(--card); box-shadow:var(--shadow);
-    font-size:15px;
-  }
-  .edu-list .yr{ font-family:'IBM Plex Mono', monospace; color:var(--ink-soft); white-space:nowrap;}
+/* ===== footer ===== */
+footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font-size:13.5px;}
+.foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:20px;}
+.foot-logo{font-family:var(--font-display);font-weight:800;color:#fff;font-size:16px;}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap;list-style:none;margin:0;padding:0;}
+.foot-links a{text-decoration:none;color:rgba(255,255,255,.68);}
+.foot-links a:hover{color:#fff;}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--font-mono);font-size:11.5px;color:rgba(255,255,255,.4);}
 
-  /* Certificados */
-  .cert-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-top:18px;}
-  .cert-card{
-    background:var(--card); border-radius:14px; box-shadow:var(--shadow);
-    padding:18px 20px;
-  }
-  .cert-card h4{ font-size:14.5px; margin:0 0 8px; color:var(--ink); font-family:'IBM Plex Sans',sans-serif; font-weight:600;}
-  .cert-meta{
-    display:flex; justify-content:space-between; gap:10px;
-    font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft);
-  }
-  .cert-meta .hrs{ color:var(--rust); font-weight:500;}
+/* ===== reveal-on-scroll ===== */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.in-view{opacity:1;transform:none;}
 
-  /* Footer / contato */
-  .footer{
-    padding:72px 24px 48px;
-    background:var(--ink);
-    color:var(--paper);
-  }
-  .footer .section-inner{ text-align:left;}
-  .footer h2{ color:var(--paper); font-size:clamp(26px,4vw,38px); margin-bottom:14px;}
-  .footer p.lead{ color:#cfc9b8; font-size:16px; margin-bottom:32px;}
-  .contact-grid{
-    display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:24px 32px; margin-bottom:40px;
-  }
-  .contact-grid div{ border-top:1px solid #4a473c; padding-top:12px; min-width:0;}
-  .contact-grid .k{
-    font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase;
-    letter-spacing:.08em; color:#a39c86; margin-bottom:6px;
-  }
-  .contact-grid .v{
-    font-size:15px; color:var(--paper);
-    display:block; word-break:normal; overflow-wrap:break-word;
-  }
-  .contact-grid a.v:hover{ color:var(--rust);}
-  .footer .btn-primary{ background:var(--rust); border-color:var(--rust); color:var(--paper);}
-  .footer .btn-primary:hover{ background:var(--paper); color:var(--ink); border-color:var(--paper);}
-  .footer .btn-ghost{ color:var(--paper); border-color:#6b6858;}
-  .footer .btn-ghost:hover{ border-color:var(--paper);}
-  .fine{
-    margin-top:48px; padding-top:20px; border-top:1px solid #4a473c;
-    font-family:'IBM Plex Mono', monospace; font-size:11px; color:#8a836d;
-  }
+/* ===== lightbox (reused) ===== */
+.lightbox{position:fixed;inset:0;background:rgba(9,13,24,.92);display:none;align-items:center;justify-content:center;z-index:1000;padding:32px;}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:92vw;max-height:82vh;border-radius:8px;}
+.lightbox-caption{position:absolute;bottom:28px;left:0;right:0;text-align:center;color:#fff;font-family:var(--font-mono);font-size:13px;}
+.lightbox-close{position:absolute;top:20px;right:28px;background:none;border:0;color:#fff;font-size:32px;cursor:pointer;line-height:1;}
 
-  @media (max-width:640px){
-    .km-row{ grid-template-columns:1fr;}
-    .km-tag{ padding-top:0;}
-    #rulerLabel{ display:none;}
-  }
-
-  /* Gallery */
-  .gallery-groups{ display:flex; flex-direction:column; gap:10px;}
-  .gallery-group{
-    border:1px solid var(--line); border-radius:14px; overflow:hidden;
-    background:var(--panel, #fff);
-  }
-  .gallery-group-title{
-    display:flex; align-items:center; justify-content:space-between; gap:10px;
-    width:100%; text-align:left; cursor:pointer; background:none; border:none;
-    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
-    text-transform:uppercase; letter-spacing:.06em; color:var(--rust);
-    padding:16px 18px; font-weight:500;
-  }
-  .gallery-group-title:hover{ background:rgba(0,0,0,0.02);}
-  .gallery-group-count{
-    font-weight:400; color:var(--ink-soft); text-transform:none; letter-spacing:0;
-    margin-right:auto; margin-left:10px; font-size:11.5px;
-  }
-  .gallery-group-icon{
-    display:inline-block; width:9px; height:9px; flex:none;
-    border-right:1.5px solid var(--rust); border-bottom:1.5px solid var(--rust);
-    transform:rotate(-45deg); transition:transform .25s ease; margin-left:6px;
-  }
-  .gallery-group.open .gallery-group-icon{ transform:rotate(45deg); }
-  .gallery-group-body{
-    max-height:0; overflow:hidden; transition:max-height .35s ease;
-  }
-  .gallery-group-body .gallery-grid{ padding:4px 18px 20px; }
-
-  /* ---------- CV viewer (protected) ---------- */
-  .cv-viewer{
-    display:flex; flex-direction:column; gap:24px; align-items:center;
-    -webkit-user-select:none; -moz-user-select:none; user-select:none;
-  }
-  .cv-page{
-    width:100%; max-width:780px;
-    aspect-ratio:1489/2105;
-    background-size:cover; background-position:top center;
-    background-repeat:no-repeat;
-    border:1px solid var(--line); box-shadow:0 8px 24px rgba(20,24,30,0.08);
-    -webkit-user-drag:none; user-drag:none;
-    pointer-events:none;
-  }
-  .back-to-top{
-    display:inline-flex; align-items:center; gap:6px;
-    font-size:12px; letter-spacing:.04em; color:var(--ink-soft);
-    text-decoration:none; margin-bottom:20px;
-  }
-  .back-to-top:hover{ color:var(--rust); }
-  .back-to-top-btn{ display:block; width:max-content; margin:28px auto 0; }
-  .gallery-grid{
-    display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-    gap:14px;
-  }
-  .gallery-item{
-    position:relative; border-radius:12px; overflow:hidden;
-    box-shadow:var(--shadow); cursor:pointer; background:#dfe4ea;
-    aspect-ratio:4/3;
-  }
-  .gallery-item img{
-    width:100%; height:100%; object-fit:cover; display:block;
-    transition:transform .35s ease;
-  }
-  .gallery-item:hover img{ transform:scale(1.06);}
-  .gallery-item .cap{
-    position:absolute; left:0; right:0; bottom:0;
-    padding:10px 12px 8px;
-    background:linear-gradient(to top, rgba(27,42,74,0.82), rgba(27,42,74,0));
-    color:#fff; font-family:'IBM Plex Mono', monospace; font-size:10.5px;
-    opacity:0; transition:opacity .2s ease;
-  }
-  .gallery-item:hover .cap{ opacity:1;}
-  .gallery-item video{
-    width:100%; height:100%; object-fit:cover; display:block; background:#000;
-  }
-  .gallery-empty{
-    grid-column:1/-1; text-align:center; padding:40px 20px;
-    color:var(--ink-soft); font-family:'IBM Plex Mono', monospace; font-size:13px;
-    border:1.5px dashed var(--line); border-radius:14px;
-  }
-
-  .lightbox{
-    display:none; position:fixed; inset:0; z-index:100;
-    background:rgba(15,20,32,0.94);
-    align-items:center; justify-content:center;
-    flex-direction:column; padding:40px 20px;
-  }
-  .lightbox.open{ display:flex;}
-  .lightbox img{ max-width:min(90vw,1000px); max-height:78vh; border-radius:6px; box-shadow:0 20px 60px rgba(0,0,0,0.5);}
-  .lightbox-caption{ color:#cfd6e2; font-family:'IBM Plex Mono', monospace; font-size:12.5px; margin-top:16px; text-align:center; max-width:700px;}
-  .lightbox-close{
-    position:absolute; top:20px; right:28px;
-    background:none; border:none; color:#fff; font-size:34px; line-height:1;
-    cursor:pointer; font-family:'IBM Plex Sans',sans-serif;
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior:auto;}
-    .reveal{ opacity:1; transform:none; transition:none;}
-    .ruler-fill{ transition:none;}
-  }
+@media(max-width:760px){
+  .section{padding:64px 0;}
+  .hero{padding:132px 0 80px;}
+}
 </style>
 </head>
 <body>
-<div id="ruler">
-<span id="rulerLabel">CARREIRA</span>
-<div class="ruler-track"><div class="ruler-fill" id="rulerFill"></div><div class="ruler-marker" id="rulerMarker"></div></div>
-<span class="mono" id="rulerKm">km 0+000</span>
+
+<nav class="nav" id="nav">
+<div class="wrap">
+<div class="nav-logo">Pablo Ribeiro <span>Engenharia</span></div>
+<ul class="nav-links">
+<li><a href="#sobre">Sobre</a></li>
+<li><a href="#servicos">Serviços</a></li>
+<li><a href="#galeria">Trabalhos</a></li>
+<li><a href="#depoimentos">Depoimentos</a></li>
+</ul>
+<a class="btn btn-primary nav-cta" href="mailto:ribeiro.engpablo@gmail.com">Solicitar orçamento</a>
 </div>
-<header class="hero" id="topo">
-<div aria-hidden="true" class="hero-bg">
-<svg height="100%" preserveaspectratio="none" style="position:absolute; inset:0;" viewbox="0 0 1000 500" width="100%">
-<g fill="none" opacity="0.6" stroke="#C7BFAC" stroke-width="1">
-<path d="M-50,420 C 200,380 350,460 600,410 S 950,360 1050,400"></path>
-<path d="M-50,460 C 220,420 400,490 650,440 S 980,400 1050,440"></path>
-<path d="M-50,380 C 180,340 320,410 580,370 S 920,320 1050,360"></path>
-</g>
+</nav>
+
+<header class="hero">
+<svg class="hero-contours" viewBox="0 0 1200 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M-50,120 C 200,60 400,180 650,110 S 1100,140 1250,90" stroke="#2563EB" stroke-width="1" fill="none" opacity="0.5"/>
+<path d="M-50,190 C 220,140 420,250 680,180 S 1120,210 1250,160" stroke="#2563EB" stroke-width="1" fill="none" opacity="0.4"/>
+<path d="M-50,260 C 240,220 440,320 700,250 S 1140,280 1250,230" stroke="#2563EB" stroke-width="1" fill="none" opacity="0.3"/>
+<path d="M-50,330 C 260,300 460,390 720,320 S 1160,350 1250,300" stroke="#2563EB" stroke-width="1" fill="none" opacity="0.2"/>
+<path d="M-50,400 C 280,380 480,450 740,390 S 1180,410 1250,370" stroke="#2563EB" stroke-width="1" fill="none" opacity="0.15"/>
 </svg>
-</div>
-<div class="hero-content">
-<p class="masthead">PABLO RODRIGO RIBEIRO — ENGENHARIA CIVIL</p>
-<p class="eyebrow">Fl. 01/08 — Memorial de Qualificação Técnica</p>
-<h1>Pablo Rodrigo<br/>Ribeiro</h1>
-<p class="role">Engenheiro Civil Sênior — Pavimentação, Rodovias e Perícia Técnica. Mais de 25 anos entre projeto, execução e gestão de grandes contratos.</p>
-<div class="hero-meta mono">
-<span>CREA‑PR 83.338/D‑PR</span>
-<span>Perito Judicial · TJPR</span>
-<span>Ponta Grossa, PR</span>
-</div>
+<div class="wrap hero-inner">
+<span class="eyebrow">Engenharia civil · Ponta Grossa/PR</span>
+<h1>Soluções em engenharia civil para quem exige resultado.</h1>
+<p class="hero-lead">Mais de 25 anos entre projeto, execução e gestão de obras — rodovias, edificações industriais, comerciais e residenciais. Atuo com uma rede de parceiros e fornecedores especializados para montar a equipe certa em cada contrato.</p>
 <div class="hero-actions">
-<a class="btn btn-primary" href="mailto:ribeiro.engpablo@gmail.com">Falar por e-mail</a>
-<a class="btn btn-ghost" href="https://www.linkedin.com/in/ribeiro-eng-pablo-rodrigo" rel="noopener" target="_blank">LinkedIn</a>
+<a class="btn btn-primary" href="mailto:ribeiro.engpablo@gmail.com">Solicitar orçamento</a>
+<a class="btn btn-ghost-dark" href="#servicos">Conheça os serviços</a>
+</div>
+<div class="hero-meta">
+<span>CREA-PR 83.338/D-PR</span>
+<span>Perito judicial · TJPR</span>
+<span>Atendimento PR · SP · SC</span>
 </div>
 </div>
 </header>
-<section class="section" id="perfil">
-<div class="section-inner">
-<div class="section-head"><span class="sheet-no mono">Fl. 02/08</span><h2>Perfil</h2></div>
-<div class="reveal">
-<p class="lead">Engenheiro Civil com mais de 25 anos de experiência em obras rodoviárias, pavimentação, terraplenagem e drenagem, com atuação direta em contratos junto ao DER‑PR, DEINFRA‑SC e SEIL‑PR — incluindo restauração e implantação de pavimentos, análise e validação de projetos executivos rodoviários e obras de arte correntes e especiais.</p>
-<p class="lead">Domínio do dimensionamento pelo método empírico do DNIT (CBR) e do método mecanístico‑empírico nacional MeDiNa (módulo de resiliência, deformação permanente, fadiga do revestimento, retroanálise BackMeDiNa), com conhecimento complementar em modelagem e análise de desempenho de pavimentos via HDM‑4 — cobrindo tanto o dimensionamento de projeto quanto a gestão de ativos rodoviários ao longo do ciclo de vida da malha.</p>
-<svg aria-label="Esquema de camadas de um pavimento asfáltico" class="xsec" role="img" viewbox="0 0 480 130">
-<rect fill="#3A5561" height="14" width="480" x="0" y="86"></rect>
-<rect fill="#6b7c84" height="14" width="480" x="0" y="100"></rect>
-<rect fill="#9aa39e" height="10" width="480" x="0" y="114"></rect>
-<rect fill="#23211D" height="6" width="480" x="0" y="80"></rect>
-<line stroke="#C7BFAC" stroke-width="1" x1="30" x2="30" y1="80" y2="30"></line>
-<text x="34" y="34">Revestimento</text>
-<line stroke="#C7BFAC" stroke-width="1" x1="130" x2="130" y1="93" y2="45"></line>
-<text x="134" y="49">Base</text>
-<line stroke="#C7BFAC" stroke-width="1" x1="230" x2="230" y1="107" y2="60"></line>
-<text x="234" y="64">Sub‑base</text>
-<line stroke="#C7BFAC" stroke-width="1" x1="360" x2="360" y1="119" y2="75"></line>
-<text x="364" y="79">Subleito</text>
-</svg>
+
+<section class="section" id="sobre">
+<div class="wrap">
+<div class="sobre-grid">
+<div class="sobre-photo reveal">
+<img alt="Pablo Ribeiro em visita técnica de obra" src="img/depo-foto-01.jpg"/>
+<span class="sobre-badge">Visita técnica em campo</span>
 </div>
-</div>
-</section>
-<section class="section alt" id="competencias">
-<div class="section-inner">
-<div class="section-head"><span class="sheet-no mono">Fl. 03/08</span><h2>Competências técnicas</h2></div>
-<div class="legend-grid reveal">
-<div class="legend-cell">
-<h3>Dimensionamento &amp; métodos</h3>
-<ul>
-<li>Método empírico DNIT (CBR — Murillo Lopes de Souza)</li>
-<li>Método mecanístico‑empírico MeDiNa (MR, DP, fadiga, retroanálise)</li>
-<li>Modelagem e gestão de malha — HDM‑4</li>
-</ul>
-</div>
-<div class="legend-cell">
-<h3>Estrutura &amp; execução</h3>
-<ul>
-<li>Terraplenagem e pavimentação asfáltica/poliédrica</li>
-<li>Drenagem urbana e rodoviária</li>
-<li>Obras de arte correntes e especiais (OAE)</li>
-</ul>
-</div>
-<div class="legend-cell">
-<h3>Gestão &amp; contratos</h3>
-<ul>
-<li>Coordenação de frentes e cronogramas executivos</li>
-<li>Controle físico‑financeiro e medições contratuais</li>
-<li>Interface com DER‑PR, DEINFRA‑SC, SEIL‑PR e concessionárias</li>
-</ul>
-</div>
-<div class="legend-cell">
-<h3>Ferramentas</h3>
-<ul>
-<li>AutoCAD / AutoCAD Civil 3D</li>
-<li>MS Project</li>
-<li>Excel avançado &amp; Power BI</li>
-<li>Desenvolvimento de app próprio de gestão de obras (localização de equipes, checklists diários)</li>
-</ul>
-</div>
-<div class="legend-cell">
-<h3>Perícia judicial &amp; avaliações</h3>
-<ul>
-<li>Avaliação de bens conforme NBR‑14.653‑1/2 (comparativo, evolutivo, capitalização de renda)</li>
-<li>Revisão crítica e auditoria metodológica de pareceres técnicos de terceiros</li>
-<li>Vistoria técnica e laudo fotográfico de obras (NBR‑16747:2020)</li>
-<li>Estudos de viabilidade técnica para empreendimentos imobiliários</li>
-</ul>
-</div>
-<div class="legend-cell">
-<h3>Execução &amp; responsabilidade técnica — obras gerais</h3>
-<ul>
-<li>Responsável técnico em pequenas obras e empreitadas (autônomo/PJ)</li>
-<li>Marcenaria e serralheria de acabamento — móveis planejados, painéis e esquadrias</li>
-<li>Montagem de barracões e estruturas metálicas</li>
-<li>Acompanhamento técnico de obra — controle dimensional, execução e qualidade</li>
-</ul>
+<div class="sobre-copy reveal">
+<span class="eyebrow" style="color:var(--signal);display:block;margin-bottom:14px;">Quem conduz o trabalho</span>
+<h2 style="margin-bottom:18px;">Engenharia sênior, presença em campo.</h2>
+<p>Sou engenheiro civil sênior, com mais de 25 anos de experiência em obras rodoviárias, prediais, industriais e comerciais — do projeto geométrico à entrega da obra. Registro técnico ativo no CREA-PR e habilitação como perito judicial em engenharia civil no Paraná.</p>
+<p>Atuo com uma rede de parceiros e fornecedores especializados por tipo de obra, o que permite montar a equipe certa para cada escopo sem abrir mão da responsabilidade técnica direta em cada contrato — do acompanhamento diário ao laudo final.</p>
 </div>
 </div>
 </div>
 </section>
-<section class="section" id="trajetoria">
-<div class="section-inner">
-<div class="section-head"><span class="sheet-no mono">Fl. 04/08</span><h2>Trajetória em obra</h2></div>
-<div class="km-log reveal">
-<div class="km-row">
-<div class="km-tag mono">2026</div>
-<div class="km-body">
-<h3>Engenheiro de Obras — Comercial Lucol Ltda. / Grupo JMR</h3>
-<div class="km-meta mono"><span>Pré-fabricados &amp; estruturas metálicas</span><span>PR e SP</span><span>Fiscalização e controle de qualidade</span></div>
-<p class="km-desc">Acompanhamento técnico de obras em estruturas pré-moldadas de concreto e metálicas, com visitas de fiscalização, controle dimensional e resposta técnica a diários de obra. Elaboração de laudo de inspeção predial conforme ABNT NBR 16747:2020 (Neo Biomedia / Incubatório Conchal) e de manifestação técnica de delimitação de escopo contratual (obra Unicesumar/SOEDMAR). Desenvolvimento próprio de aplicativo web para gestão e localização de equipes de obra.</p>
+
+<section class="section alt" id="servicos">
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow">O que eu faço</span>
+<h2>Serviços</h2>
+<p>Quatro frentes de atuação, sempre com responsabilidade técnica registrada em CREA-PR.</p>
 </div>
+<div class="services-grid">
+<div class="service-card reveal">
+<div class="service-icon">🛣️</div>
+<h3>Projetos e obras rodoviárias</h3>
+<p>Pavimentação, terraplenagem, drenagem e projetos executivos de geometria viária e obras de arte.</p>
 </div>
-<div class="km-row">
-<div class="km-tag mono">2023–2026</div>
-<div class="km-body">
-<h3>Projeto Puma II — Klabin S.A. (Fase II)</h3>
-<div class="km-meta mono"><span>DER‑PR</span><span>Contrato ZCN 13.339</span><span>PJ via Engemin Engenharia e Geologia Ltda</span><span>Coordenador de Análise de Projeto</span></div>
-<p class="km-desc">Análise e aprovação de projetos executivos rodoviários (geométrico, terraplenagem, drenagem, pavimentação, obras de arte especiais, sinalização, contenção, desapropriação e orçamento) para a Trincheira da Vila Osório (PR‑160) e trechos da PR‑340 (Minuano, Contorno de Arapoti, Contorno de Ventania e Telêmaco Borba–Tibagi). Elaboração de relatórios técnicos mensais de acompanhamento e interlocução entre projetistas — como a Projecalc Engenharia, autora do projeto executivo do Viaduto Max Standancher (Lote 01.02, Telêmaco Borba/PR) —, Klabin S.A. e DER/PR.</p>
+<div class="service-card reveal">
+<div class="service-icon">🏗️</div>
+<h3>Obras industriais e comerciais</h3>
+<p>Barracões pré-fabricados, mesaninos metálicos, reformas de fachada e edificações de médio e grande porte.</p>
 </div>
+<div class="service-card reveal">
+<div class="service-icon">🪚</div>
+<h3>Marcenaria e serralheria</h3>
+<p>Acabamento fino em madeira e metal para obras residenciais, comerciais e institucionais de alto padrão.</p>
 </div>
-<div class="km-row">
-<div class="km-tag mono">2017–2020</div>
-<div class="km-body">
-<h3>Pavimentação Poliédrica — Prudentópolis e Guamiranga/PR</h3>
-<div class="km-meta mono"><span>Contratos &gt; R$ 13 milhões</span><span>Responsável Técnico</span></div>
-<p class="km-desc">Pavimentação poliédrica em estradas rurais; pavimentação asfáltica e passeios em São João do Triunfo/PR (R$ 2,18 milhões); obras de drenagem pluvial em Prudentópolis/PR.</p>
-</div>
-</div>
-<div class="km-row">
-<div class="km-tag mono">2015</div>
-<div class="km-body">
-<h3>Estudo de Viabilidade Técnica — Loteamento Rio Cerro I, Jaraguá do Sul/SC</h3>
-<div class="km-meta mono"><span>ART CREA‑PR 20153543410</span><span>≈120 ha (1.200.699,4 m²)</span><span>≈1.600 lotes urbanos</span><span>R$ 129 milhões</span><span>Consultor / Responsável Técnico</span></div>
-<p class="km-desc">Estudo de viabilidade técnica de implantação de loteamento horizontal de grande porte, com análise empírica aprofundada da topografia local e da adequação da área ao parcelamento urbano, subsidiando requerimento de análise prévia junto à Prefeitura Municipal.</p>
-</div>
-</div>
-<div class="km-row">
-<div class="km-tag mono">2010–2020</div>
-<div class="km-body">
-<h3>Viaduto Santa Paula — Ponta Grossa/PR</h3>
-<div class="km-meta mono"><span>Prefeitura Municipal de Ponta Grossa</span><span>Sócio &amp; Responsável Técnico</span></div>
-<p class="km-desc">Projeto de geometria viária, pavimentação, drenagem e adequação, incluindo OAE, topografia e sondagem de solo.</p>
-</div>
-</div>
-<div class="km-row">
-<div class="km-tag mono">2009–2011</div>
-<div class="km-body">
-<h3>SC‑407 (atual SC‑108) — Rancho Queimado–Anitápolis/SC</h3>
-<div class="km-meta mono"><span>34,8 km</span><span>DEINFRA/SC</span><span>R$ 28,4 milhões</span><span>Gerente de Obras</span></div>
-<p class="km-desc">Implantação de trecho rodoviário — pavimentação asfáltica e terraplenagem em terreno serrano acidentado, sob convênio com o Ministério dos Transportes.</p>
-</div>
-</div>
-<div class="km-row">
-<div class="km-tag mono">2006–2009</div>
-<div class="km-body">
-<h3>Pavimentação urbana — Ponta Grossa/PR</h3>
-<div class="km-meta mono"><span>CPS – Cia. Pontagrossense de Serviços</span><span>~R$ 80 milhões coordenados</span><span>Diretor Técnico</span></div>
-<p class="km-desc">Execução de pavimentação asfáltica em múltiplas frentes simultâneas na malha urbana do município.</p>
-</div>
+<div class="service-card reveal">
+<div class="service-icon">📋</div>
+<h3>Perícia e laudos técnicos</h3>
+<p>Perícia judicial, laudos de inspeção predial conforme ABNT NBR 16747 e pareceres técnicos.</p>
 </div>
 </div>
 </div>
 </section>
-<section class="section alt" id="acervo">
-<div class="section-inner">
-<div class="section-head"><span class="sheet-no mono">Fl. 05/08</span><h2>Acervo Técnico CREA‑PR</h2></div>
-<p class="lead reveal" style="margin-bottom:8px;">Consolidado do acervo técnico registrado junto ao CREA‑PR (CAT), reunindo as Anotações de Responsabilidade Técnica (ART) firmadas ao longo da carreira.</p>
-<div class="stat-grid reveal">
-<div class="stat-card">
-<div class="stat-number">384</div>
-<div class="stat-label">ARTs principais acervadas</div>
+
+<section class="section" id="galeria">
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow">Prova em campo</span>
+<h2>Trabalhos realizados</h2>
+<p>Obras e projetos organizados por cliente e segmento. Clique em cada grupo para abrir a galeria.</p>
 </div>
-<div class="stat-card">
-<div class="stat-number">~192 ha</div>
-<div class="stat-label">Área executada<br/>(≈ 1.920.722 m²)</div>
-</div>
-<div class="stat-card">
-<div class="stat-number">343</div>
-<div class="stat-label">Obras de arruamento<br/>e pavimentação</div>
-</div>
-<div class="stat-card">
-<div class="stat-number">8</div>
-<div class="stat-label">Municípios atendidos<br/>(2006–2019)</div>
-</div>
-</div>
-<div class="acervo-note reveal">O CAT completo (ART a ART) não é publicado integralmente neste site por conter dados de terceiros (endereços de clientes e valores contratuais). Disponível mediante solicitação por e-mail.</div>
-</div>
-</section>
-<section class="section alt" id="galeria">
-<div class="section-inner">
-<div class="section-head"><span class="sheet-no mono">Fl. 06/08</span><h2>Galeria de obras</h2></div>
-<p class="lead reveal" style="margin-bottom:24px;">Registro fotográfico de campo — acompanhamento técnico, execução e controle de qualidade.</p>
 <div class="gallery-groups reveal" id="galleryGroups">
 <div class="gallery-group">
 <button class="gallery-group-title" type="button">
@@ -660,195 +312,155 @@
 <img alt="" id="lightboxImg" src=""/>
 <div class="lightbox-caption" id="lightboxCaption"></div>
 </div>
-<section class="section" id="docencia">
-<div class="section-inner">
-<div class="section-head"><span class="sheet-no mono">Fl. 07/08</span><h2>Docência &amp; perícia judicial</h2></div>
-<div class="card-grid reveal">
-<div class="card">
-<span class="tag mono">2016 – 2020</span>
-<h3>Professor Universitário</h3>
-<p>CESCAGE — Faculdades Ponta Grossa e UNOPAR/Grupo Kroton.</p>
-<p>Disciplinas: Pavimentação, Estradas e Projetos Rodoviários, Pontes e Grandes Estruturas, Planejamento e Controle de Obras, Saneamento Básico.</p>
+
 </div>
-<div class="card">
-<span class="tag mono">Ativo</span>
-<h3>Perito Judicial — TJPR</h3>
-<p>Cadastrado como Perito Judicial junto ao Tribunal de Justiça do Paraná, na especialidade de Engenharia Civil.</p>
-<p>Registro ativo no CREA‑PR (83.338/D‑PR).</p>
+</section>
+
+<section class="section dif-section" id="diferenciais">
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow" style="color:#8FC2FF;">Por que trabalhar comigo</span>
+<h2 style="color:#fff;">Diferenciais</h2>
 </div>
-<div class="card">
-<span class="tag mono">2026</span>
-<h3>Laudos &amp; relatórios técnicos</h3>
-<p>Laudo técnico de inspeção predial conforme ABNT NBR 16747:2020 (Neo Biomedia / Incubatório Conchal, Conchal/SP), com avaliação de manifestações patológicas e recomendações corretivas.</p>
-<p>Manifestação técnica de delimitação de escopo contratual em resposta a diários de obra (Unicesumar/SOEDMAR, Ponta Grossa/PR).</p>
-<p>Relatórios mensais de análise e aprovação de projetos e cartas de aprovação técnica no contrato Klabin S.A. / DER‑PR — Projeto Puma II (Fase II).</p>
-</div>
-<div class="card">
-<span class="tag mono">2026</span>
-<h3>Avaliação imobiliária judicial</h3>
-<p>Laudo técnico unificado de engenharia para processo judicial (TJPR — Comarca de Ponta Grossa/PR), com avaliação imobiliária de dois imóveis pelos Métodos Comparativo Direto e Evolutivo (terreno, benfeitorias e capitalização de renda), conforme NBR‑14.653‑1/2.</p>
-<p>Parecer técnico de revisão crítica de avaliação produzida por terceiros, com identificação de inconsistência documental de área e de falhas metodológicas frente à norma ABNT.</p>
-<p>Registro fotográfico georreferenciado como prova técnica, com rastreabilidade completa de data, horário e localização.</p>
-</div>
-<div class="card">
-<span class="tag mono">Diversos</span>
-<h3>Vistoria técnica de obra inacabada</h3>
-<p>Vistoria, avaliação e laudo fotográfico de residência unifamiliar com obra abandonada pela construtora contratada, em Ponta Grossa/PR, qualificando o estado real de execução em contraposição ao contratado.</p>
-<p>Medições técnicas de campo (nível, prumo, dimensões de vãos e vigas) e verificação de conformidade normativa, incluindo item de instalações hidráulicas fora dos parâmetros da NBR‑8160.</p>
-</div>
+<div class="dif-list">
+<div class="dif-item reveal"><span class="dif-check">✓</span><p>Mais de 25 anos de experiência em obras públicas e privadas</p></div>
+<div class="dif-item reveal"><span class="dif-check">✓</span><p>Responsabilidade técnica registrada em CREA-PR em todos os contratos</p></div>
+<div class="dif-item reveal"><span class="dif-check">✓</span><p>Rede de parceiros e fornecedores especializados por tipo de obra</p></div>
+<div class="dif-item reveal"><span class="dif-check">✓</span><p>Perito judicial habilitado junto ao TJPR</p></div>
+<div class="dif-item reveal"><span class="dif-check">✓</span><p>Atendimento em obras no Paraná, São Paulo e Santa Catarina</p></div>
+<div class="dif-item reveal"><span class="dif-check">✓</span><p>Acompanhamento técnico direto, do planejamento à entrega</p></div>
 </div>
 </div>
 </section>
-<section class="section alt" id="formacao">
-<div class="section-inner">
-<div class="section-head"><span class="sheet-no mono">Fl. 08/08</span><h2>Formação</h2></div>
-<ul class="edu-list reveal">
-<li><span>Graduação em Engenharia Civil — Universidade Estadual de Ponta Grossa (UEPG)</span><span class="yr mono">2005</span></li>
-<li><span>Pós‑graduação em Gestão Ambiental — Universidade Estadual de Ponta Grossa (UEPG)</span><span class="yr mono">2009</span></li>
-</ul>
-<h3 style="margin-top:40px; margin-bottom:16px; font-size:16px; color:var(--rust); font-family:'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:.06em;">Formação complementar</h3>
-<div class="cert-grid reveal">
-<div class="cert-card">
-<h4>Power BI Essencial</h4>
-<div class="cert-meta"><span>Tetra Educação · 14/04/2026</span><span class="hrs">15h</span></div>
+
+<section class="section alt" id="numeros">
+<div class="wrap">
+<div class="stats-grid">
+<div class="stat-card reveal"><div class="stat-num">25+</div><div class="stat-label">anos de experiência</div></div>
+<div class="stat-card reveal"><div class="stat-num">R$100M+</div><div class="stat-label">em obras e contratos geridos</div></div>
+<div class="stat-card reveal"><div class="stat-num">340+</div><div class="stat-label">obras de arruamento acervadas</div></div>
+<div class="stat-card reveal"><div class="stat-num">8</div><div class="stat-label">municípios atendidos</div></div>
 </div>
-<div class="cert-card">
-<h4>Excel Avançado</h4>
-<div class="cert-meta"><span>Tetra Educação · 21/04/2026</span><span class="hrs">25h</span></div>
 </div>
-<div class="cert-card">
-<h4>Excel Essencial</h4>
-<div class="cert-meta"><span>Tetra Educação · 21/04/2026</span><span class="hrs">8h</span></div>
+</section>
+
+<section class="section" id="depoimentos">
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow">Quem já trabalhou comigo</span>
+<h2>Depoimentos</h2>
 </div>
-<div class="cert-card">
-<h4>Gestão e Liderança</h4>
-<div class="cert-meta"><span>Tetra Educação · 10/04/2026</span><span class="hrs">12h</span></div>
+<div class="testi-grid">
+<div class="testi-card testi-photo reveal">
+<img alt="Cliente satisfeito em visita técnica" src="img/depo-foto-02.jpg"/>
+<div class="who">Clientes satisfeitos — visita técnica em campo</div>
 </div>
-<div class="cert-card">
-<h4>Gerenciamento de Projetos e Processos</h4>
-<div class="cert-meta"><span>Tetra Educação · 30/03/2026</span><span class="hrs">12h</span></div>
+<div class="testi-card testi-quote reveal">
+<span class="testi-badge">★ Avaliação: ótimo</span>
+<p>"Valeu mesmo pelo serviço! Ficou tudo certinho, bem melhor do que eu esperava. Gostei da atenção desde o começo, você explicou tudo direitinho e foi super tranquilo durante todo o processo. Dá pra ver que faz o trabalho com capricho e responsabilidade. Pode ter certeza que quando eu precisar de novo vou te chamar, e já indiquei seu contato pra um pessoal aqui. Obrigado mesmo!"</p>
+<div class="who">Cliente — Ponta Grossa/PR</div>
 </div>
-<div class="cert-card">
-<h4>Alta Performance — Gustavo Borges</h4>
-<div class="cert-meta"><span>Tetra Educação · 31/03/2026</span><span class="hrs">4h</span></div>
+<div class="testi-card reveal" style="display:flex;flex-direction:column;">
+<div style="background:var(--mist);padding:20px;flex:1;display:flex;align-items:center;">
+<img alt="Pesquisa de satisfação com clientes" src="img/depo-enquete.png" style="border-radius:8px;"/>
 </div>
-<div class="cert-card">
-<h4>MasterClass Carreira — LinkedIn e Entrevista de Emprego</h4>
-<div class="cert-meta"><span>Tetra Educação · 09/04/2026</span><span class="hrs">2h</span></div>
-</div>
-<div class="cert-card">
-<h4>NR 35 — Trabalho em Altura</h4>
-<div class="cert-meta"><span>Formação complementar</span><span class="hrs"> </span></div>
+<div class="who" style="padding:14px 16px;color:var(--steel);">Pesquisa de satisfação — clientes atendidos</div>
 </div>
 </div>
 </div>
 </section>
 
-<footer class="footer" id="contato">
-<div class="section-inner">
-<h2>Vamos conversar</h2>
-<p class="lead">Disponibilidade imediata para atuação em concessionárias, órgãos gestores e empresas de engenharia rodoviária — inclusive fora de Ponta Grossa.</p>
-<div class="contact-grid">
-<div><div class="k">E‑mail</div><a class="v" href="mailto:ribeiro.engpablo@gmail.com">ribeiro.engpablo@gmail.com</a></div>
-<div><div class="k">Telefone / WhatsApp</div><a class="v" href="tel:+554299189446">(42) 9 9918‑9446</a></div>
-<div><div class="k">LinkedIn</div><a class="v" href="https://www.linkedin.com/in/ribeiro-eng-pablo-rodrigo" rel="noopener" target="_blank">linkedin.com/in/ribeiro‑eng‑pablo‑rodrigo</a></div>
-<div><div class="k">Localização</div><span class="v">Ponta Grossa — PR, Brasil</span></div>
+<section class="cta-section">
+<div class="wrap">
+<span class="eyebrow" style="color:#8FC2FF;">Vamos conversar?</span>
+<h2 style="margin-top:14px;">Sua obra merece o acompanhamento técnico certo.</h2>
+<p>Com uma rede de parceiros e fornecedores de confiança, estou pronto para encontrar a melhor solução para o seu projeto — do orçamento à entrega.</p>
+<a class="btn btn-primary" href="mailto:ribeiro.engpablo@gmail.com">Fale comigo</a>
 </div>
-<div class="hero-actions">
-<a class="btn btn-primary" href="mailto:ribeiro.engpablo@gmail.com">Enviar e‑mail</a>
+</section>
+
+<footer>
+<div class="wrap">
+<div class="foot-top">
+<div class="foot-logo">Pablo Ribeiro Engenharia</div>
+<ul class="foot-links">
+<li><a href="mailto:ribeiro.engpablo@gmail.com">ribeiro.engpablo@gmail.com</a></li>
+<li><a href="https://www.linkedin.com/in/ribeiro-eng-pablo-rodrigo" rel="noopener" target="_blank">LinkedIn</a></li>
+<li><a href="tel:+5542999189446">(42) 9 9918-9446</a></li>
+</ul>
 </div>
-<div class="fine">CREA‑PR 83.338/D‑PR · Perito Judicial em Engenharia Civil — TJPR · Ponta Grossa, PR</div>
+<div class="foot-bottom">
+<span>CREA-PR 83.338/D-PR · Ponta Grossa, PR</span>
+<span>© 2026 Pablo Rodrigo Ribeiro. Todos os direitos reservados.</span>
+</div>
 </div>
 </footer>
+
+<div class="lightbox" id="lightbox">
+<button aria-label="Fechar" class="lightbox-close" id="lightboxClose">×</button>
+<img alt="" id="lightboxImg" src=""/>
+<div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
 <script>
-  // Scroll ruler: maps scroll position to a km marker (1km ≈ 1 ano de carreira, 25 anos)
-  var TOTAL_KM = 25;
-  var fill = document.getElementById('rulerFill');
-  var marker = document.getElementById('rulerMarker');
-  var kmLabel = document.getElementById('rulerKm');
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function(){
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, {passive:true});
 
-  function updateRuler(){
-    var doc = document.documentElement;
-    var scrollTop = doc.scrollTop || document.body.scrollTop;
-    var height = (doc.scrollHeight - doc.clientHeight) || 1;
-    var pct = Math.min(1, Math.max(0, scrollTop / height));
-    fill.style.width = (pct*100).toFixed(1) + '%';
-    marker.style.left = (pct*100).toFixed(1) + '%';
-    var km = pct * TOTAL_KM;
-    var whole = Math.floor(km);
-    var meters = Math.round((km - whole) * 1000);
-    kmLabel.textContent = 'km ' + whole + '+' + String(meters).padStart(3,'0');
-  }
-  document.addEventListener('scroll', updateRuler, {passive:true});
-  window.addEventListener('resize', updateRuler);
-  updateRuler();
-
-  // CV viewer protection (defense in depth — client-side deterrents only)
-  var cvViewer = document.querySelector('.cv-viewer');
-  if(cvViewer){
-    cvViewer.addEventListener('contextmenu', function(e){ e.preventDefault(); });
-    cvViewer.addEventListener('dragstart', function(e){ e.preventDefault(); });
-    cvViewer.addEventListener('selectstart', function(e){ e.preventDefault(); });
-  }
-
-  // Reveal on scroll
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!reduceMotion && 'IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
-      });
-    }, {threshold:0.12});
-    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
-  } else {
-    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in-view'); });
-  }
-  // Gallery accordion
-  document.querySelectorAll('.gallery-group').forEach(function(group){
-    var btn = group.querySelector('.gallery-group-title');
-    var body = group.querySelector('.gallery-group-body');
-    function setHeight(){
-      if(group.classList.contains('open')){ body.style.maxHeight = body.scrollHeight + 'px'; }
-    }
-    if(group.classList.contains('open')){ setHeight(); }
-    btn.addEventListener('click', function(){
-      var willOpen = !group.classList.contains('open');
-      group.classList.toggle('open', willOpen);
-      body.style.maxHeight = willOpen ? body.scrollHeight + 'px' : '';
+var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!reduceMotion && 'IntersectionObserver' in window){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
     });
-    window.addEventListener('resize', setHeight);
-    // recalc after images load, in case of layout shift
-    body.querySelectorAll('img').forEach(function(img){
-      img.addEventListener('load', function(){ if(group.classList.contains('open')){ body.style.maxHeight = body.scrollHeight + 'px'; } });
-    });
-  });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+} else {
+  document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in-view'); });
+}
 
-  // Gallery lightbox
-  var lightbox = document.getElementById('lightbox');
-  var lightboxImg = document.getElementById('lightboxImg');
-  var lightboxCaption = document.getElementById('lightboxCaption');
-  var galleryGrid = document.getElementById('galleryGroups');
+document.querySelectorAll('.gallery-group').forEach(function(group){
+  var btn = group.querySelector('.gallery-group-title');
+  var body = group.querySelector('.gallery-group-body');
+  function setHeight(){
+    if(group.classList.contains('open')){ body.style.maxHeight = body.scrollHeight + 'px'; }
+  }
+  btn.addEventListener('click', function(){
+    var willOpen = !group.classList.contains('open');
+    group.classList.toggle('open', willOpen);
+    body.style.maxHeight = willOpen ? body.scrollHeight + 'px' : '';
+  });
+  window.addEventListener('resize', setHeight);
+  body.querySelectorAll('img').forEach(function(img){
+    img.addEventListener('load', function(){ if(group.classList.contains('open')){ body.style.maxHeight = body.scrollHeight + 'px'; } });
+  });
+});
 
-  galleryGrid.addEventListener('click', function(e){
-    var item = e.target.closest('.gallery-item');
-    if(!item) return;
-    var img = item.querySelector('img');
-    if(!img) return; // video tiles play inline, no lightbox
-    var capEl = item.querySelector('.cap');
-    lightboxImg.src = img.getAttribute('src');
-    lightboxImg.alt = img.getAttribute('alt') || '';
-    lightboxCaption.textContent = capEl ? capEl.textContent : '';
-    lightbox.classList.add('open');
-  });
-  document.getElementById('lightboxClose').addEventListener('click', function(){
-    lightbox.classList.remove('open'); lightboxImg.src='';
-  });
-  lightbox.addEventListener('click', function(e){
-    if(e.target === lightbox){ lightbox.classList.remove('open'); lightboxImg.src=''; }
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape'){ lightbox.classList.remove('open'); lightboxImg.src=''; }
-  });
+var lightbox = document.getElementById('lightbox');
+var lightboxImg = document.getElementById('lightboxImg');
+var lightboxCaption = document.getElementById('lightboxCaption');
+var galleryGrid = document.getElementById('galleryGroups');
+galleryGrid.addEventListener('click', function(e){
+  var item = e.target.closest('.gallery-item');
+  if(!item) return;
+  var img = item.querySelector('img');
+  if(!img) return;
+  var capEl = item.querySelector('.cap');
+  lightboxImg.src = img.getAttribute('src');
+  lightboxImg.alt = img.getAttribute('alt') || '';
+  lightboxCaption.textContent = capEl ? capEl.textContent : '';
+  lightbox.classList.add('open');
+});
+document.getElementById('lightboxClose').addEventListener('click', function(){
+  lightbox.classList.remove('open'); lightboxImg.src='';
+});
+lightbox.addEventListener('click', function(e){
+  if(e.target === lightbox){ lightbox.classList.remove('open'); lightboxImg.src=''; }
+});
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){ lightbox.classList.remove('open'); lightboxImg.src=''; }
+});
 </script>
 </body>
 </html>
