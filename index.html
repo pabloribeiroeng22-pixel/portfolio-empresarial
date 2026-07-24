@@ -106,15 +106,15 @@ p{margin:0;}
 
 /* ===== serviços ===== */
 .projects-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-.project-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease;}
+.project-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .2s ease,box-shadow .2s ease;}
 .project-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px -20px rgba(15,23,42,.25);}
 .project-photo{aspect-ratio:4/3;overflow:hidden;}
 .project-photo img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease;}
 .project-card:hover .project-photo img{transform:scale(1.06);}
 .project-body{padding:16px 18px;}
 .project-cat{font-family:var(--font-mono);font-size:11px;color:var(--signal);text-transform:uppercase;letter-spacing:.06em;}
-.project-body h3{font-size:15.5px;margin:6px 0 12px;}
-.project-link{font-size:13px;font-weight:600;color:var(--signal);}
+.project-body h3{font-size:15.5px;margin:6px 0 8px;}
+.project-desc{font-size:13px;color:var(--steel);line-height:1.5;}
 @media(max-width:900px){.projects-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:560px){.projects-grid{grid-template-columns:1fr;}}
 .service-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;}
@@ -331,41 +331,25 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font
 <div class="wrap">
 <div class="section-head reveal">
 <span class="eyebrow">Portfólio</span>
-<h2>Obras realizadas</h2>
-<p>Uma amostra dos segmentos em que atuo. Clique em qualquer card para ver a galeria completa daquele trabalho.</p>
+<h2>Segmentos em que atuo</h2>
+<p>Uma visão geral das frentes de trabalho. O portfólio completo, com todas as obras organizadas por cliente, está logo abaixo em "Trabalhos realizados".</p>
 </div>
 <div class="projects-grid">
-<div class="project-card reveal" data-target="__JMR_OVERVIEW__">
-<div class="project-photo"><img alt="Acompanhamento técnico de pré-fabricados" loading="lazy" src="img/unicesumar-p002117-001.jpg"/></div>
-<div class="project-body"><span class="project-cat">Industrial</span><h3>Acompanhamento técnico</h3><span class="project-link">Ver galeria →</span></div>
+<div class="project-card reveal">
+<div class="project-photo"><img alt="Acompanhamento técnico de obras" loading="lazy" src="img/unicesumar-p002117-001.jpg"/></div>
+<div class="project-body"><span class="project-cat">Industrial</span><h3>Acompanhamento técnico</h3><p class="project-desc">Fiscalização e responsabilidade técnica em obras de clientes diversos, do início à entrega.</p></div>
 </div>
-<div class="project-card reveal" data-target="Obra industrial — Castro/PR">
-<div class="project-photo"><img alt="Obra industrial" loading="lazy" src="img/tratornew-castro-001.jpg"/></div>
-<div class="project-body"><span class="project-cat">Industrial</span><h3>Obra industrial — Castro/PR</h3><span class="project-link">Ver galeria →</span></div>
+<div class="project-card reveal">
+<div class="project-photo"><img alt="Obras industriais" loading="lazy" src="img/tratornew-castro-001.jpg"/></div>
+<div class="project-body"><span class="project-cat">Industrial</span><h3>Obras industriais</h3><p class="project-desc">Barracões pré-fabricados, mesaninos metálicos e edificações de médio e grande porte.</p></div>
 </div>
-<div class="project-card reveal" data-target="Obra residencial (sobrados) — Ponta Grossa/PR">
-<div class="project-photo"><img alt="Obra residencial" loading="lazy" src="img/sobrados-michel-001.jpg"/></div>
-<div class="project-body"><span class="project-cat">Residencial</span><h3>Sobrados — Ponta Grossa/PR</h3><span class="project-link">Ver galeria →</span></div>
+<div class="project-card reveal">
+<div class="project-photo"><img alt="Construções residenciais e comerciais" loading="lazy" src="img/sobrados-michel-001.jpg"/></div>
+<div class="project-body"><span class="project-cat">Residencial &amp; Comercial</span><h3>Construções residenciais e comerciais</h3><p class="project-desc">Sobrados, condomínios e edificações comerciais, do projeto à obra concluída.</p></div>
 </div>
-<div class="project-card reveal" data-target="Implantação de Infraestrutura condominial - Ponta Grossa/PR">
-<div class="project-photo"><img alt="Condomínio residencial" loading="lazy" src="img/condominio-coliseu-001.jpg"/></div>
-<div class="project-body"><span class="project-cat">Residencial</span><h3>Implantação completa de Condomínio</h3><span class="project-link">Ver galeria →</span></div>
-</div>
-<div class="project-card reveal" data-target="Montagem de barracão industrial — Ponta Grossa/PR">
-<div class="project-photo"><img alt="Montagem de barracão industrial" loading="lazy" src="img/barracao-macponta-001.jpg"/></div>
-<div class="project-body"><span class="project-cat">Estruturas</span><h3>Montagem de barracão industrial</h3><span class="project-link">Ver galeria →</span></div>
-</div>
-<div class="project-card reveal" data-target="Marcenaria e serralheria — projeto comercial 01">
-<div class="project-photo"><img alt="Marcenaria e serralheria" loading="lazy" src="img/agrocete-infinity-001.jpg"/></div>
-<div class="project-body"><span class="project-cat">Acabamento</span><h3>Marcenaria e serralheria</h3><span class="project-link">Ver galeria →</span></div>
-</div>
-<div class="project-card reveal" data-target="Quadra poliesportiva e guarita — condomínio, Ponta Grossa/PR">
-<div class="project-photo"><img alt="Quadra poliesportiva e guarita" loading="lazy" src="img/condominio-royal-park-001.jpg"/></div>
-<div class="project-body"><span class="project-cat">Comercial</span><h3>Quadra poliesportiva e guarita</h3><span class="project-link">Ver galeria →</span></div>
-</div>
-<div class="project-card reveal" data-target="Construção residencial (2015)">
-<div class="project-photo"><img alt="Construção residencial" loading="lazy" src="img/sobrado-pablo-001.jpg"/></div>
-<div class="project-body"><span class="project-cat">Residencial</span><h3>Construção residencial</h3><span class="project-link">Ver galeria →</span></div>
+<div class="project-card reveal">
+<div class="project-photo"><img alt="Marcenaria e serralheria de precisão" loading="lazy" src="img/agrocete-infinity-001.jpg"/></div>
+<div class="project-body"><span class="project-cat">Acabamento</span><h3>Marcenaria e serralheria de precisão</h3><p class="project-desc">Acabamento fino em madeira e metal para projetos residenciais, comerciais e institucionais.</p></div>
 </div>
 </div>
 </div>
@@ -691,37 +675,6 @@ groupModalGrid.addEventListener('click', function(e){
   var item = e.target.closest('.gallery-item');
   if(!item) return;
   openLightboxFromItem(item);
-});
-
-document.querySelectorAll('.project-card').forEach(function(card){
-  card.addEventListener('click', function(){
-    var target = card.getAttribute('data-target');
-    var groups = document.querySelectorAll('.gallery-group');
-    if (target === '__JMR_OVERVIEW__') {
-      var overviewHtml = '';
-      groups.forEach(function(g){
-        var span = g.querySelector('.gallery-group-title span');
-        var title = span ? span.textContent.trim() : '';
-        if (title.indexOf('Acompanhamento técnico — Cliente') === 0) {
-          var img = g.querySelector('.gallery-grid img');
-          if (img) {
-            overviewHtml += '<div class="gallery-item"><img alt="' + title + '" loading="lazy" src="' + img.getAttribute('src') + '"/><div class="cap">' + title + '</div></div>';
-          }
-        }
-      });
-      groupModalTitle.textContent = 'Acompanhamento técnico — Grupo JMR/Lucol (visão geral)';
-      groupModalGrid.innerHTML = overviewHtml;
-      groupModal.classList.add('open');
-      return;
-    }
-    for (var i = 0; i < groups.length; i++) {
-      var span = groups[i].querySelector('.gallery-group-title span');
-      if (span && span.textContent.trim() === target) {
-        openGroupModal(groups[i]);
-        break;
-      }
-    }
-  });
 });
 
 var heroSlides = document.querySelectorAll('#heroSlides .hero-slide');
