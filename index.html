@@ -244,6 +244,13 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font
 .update-toast-close:hover{color:#fff;}
 @media(max-width:560px){.update-toast{left:14px;right:14px;bottom:14px;max-width:none;}}
 .laudos-highlight.panel-soft{background:#1E293B;}
+.lightbox-pdf{display:none;flex-direction:column;align-items:center;gap:14px;max-width:92vw;max-height:88vh;}
+.lightbox-pdf-page{max-width:88vw;max-height:74vh;background:#fff;border-radius:8px;box-shadow:0 20px 50px -20px rgba(0,0,0,.6);}
+.lightbox-pdf-nav{display:flex;align-items:center;gap:18px;color:#fff;font-family:var(--font-mono);font-size:13px;}
+.lightbox-pdf-nav button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;width:34px;height:34px;border-radius:50%;font-size:16px;cursor:pointer;line-height:1;}
+.lightbox-pdf-nav button:hover{background:rgba(255,255,255,.22);}
+.lightbox-pdf-nav button:disabled{opacity:.35;cursor:default;}
+.lightbox iframe{display:none;width:min(880px,92vw);height:82vh;border:0;border-radius:8px;background:#fff;}
 </style>
 </head>
 <body>
@@ -472,7 +479,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font
 <div><h3>Acervo Técnico completo</h3><p style="color:rgba(255,255,255,.55);font-size:13px;margin-top:4px;">Relação consolidada de obras e responsabilidades técnicas (CREA-PR)</p></div>
 </div>
 <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
-<a class="btn btn-primary" href="https://drive.google.com/file/d/1BwwK_sCjrZCVlUj1AKeZpDqs51lUb6bn/view" rel="noopener" target="_blank">Ver acervo técnico (PDF)</a>
+<a class="btn btn-primary pdf-link" data-caption="Acervo Técnico — Resumo de ARTs" href="img/acervo-tecnico-resumo.pdf" rel="noopener">Ver acervo técnico (PDF)</a>
 <p style="color:rgba(255,255,255,.6);font-size:13px;margin:0;">Abre em nova aba, direto do Google Drive.</p>
 </div>
 </div>
@@ -515,37 +522,37 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font
 <div class="service-icon">📊</div>
 <h3>Gerenciamento de Projetos e Processos</h3>
 <p>Carga horária de 12 horas, concluído em 30/03/2026.</p>
-<a class="cert-link" href="img/gerenciamento-projetos-processos.pdf" rel="noopener" target="_blank">Ver certificado (PDF) →</a>
+<a class="cert-link pdf-link" data-caption="Certificado — Gerenciamento de Projetos e Processos" href="img/gerenciamento-projetos-processos.pdf" rel="noopener">Ver certificado (PDF) →</a>
 </div>
 <div class="service-card reveal">
 <div class="service-icon">🚀</div>
 <h3>Alta Performance com Gustavo Borges</h3>
 <p>Carga horária de 4 horas, concluído em 31/03/2026.</p>
-<a class="cert-link" href="img/alta-performance-gustavo-borges.pdf" rel="noopener" target="_blank">Ver certificado (PDF) →</a>
+<a class="cert-link pdf-link" data-caption="Certificado — Alta Performance com Gustavo Borges" href="img/alta-performance-gustavo-borges.pdf" rel="noopener">Ver certificado (PDF) →</a>
 </div>
 <div class="service-card reveal">
 <div class="service-icon">🧭</div>
 <h3>Gestão e Liderança</h3>
 <p>Carga horária de 12 horas, concluído em 10/04/2026.</p>
-<a class="cert-link" href="img/gestao-e-lideranca.pdf" rel="noopener" target="_blank">Ver certificado (PDF) →</a>
+<a class="cert-link pdf-link" data-caption="Certificado — Gestão e Liderança" href="img/gestao-e-lideranca.pdf" rel="noopener">Ver certificado (PDF) →</a>
 </div>
 <div class="service-card reveal">
 <div class="service-icon">📗</div>
 <h3>Excel Essencial</h3>
 <p>Carga horária de 8 horas, concluído em 21/04/2026.</p>
-<a class="cert-link" href="img/excel-essencial.pdf" rel="noopener" target="_blank">Ver certificado (PDF) →</a>
+<a class="cert-link pdf-link" data-caption="Certificado — Excel Essencial" href="img/excel-essencial.pdf" rel="noopener">Ver certificado (PDF) →</a>
 </div>
 <div class="service-card reveal">
 <div class="service-icon">📈</div>
 <h3>Excel Avançado</h3>
 <p>Carga horária de 25 horas, concluído em 21/04/2026.</p>
-<a class="cert-link" href="img/excel-avancado.pdf" rel="noopener" target="_blank">Ver certificado (PDF) →</a>
+<a class="cert-link pdf-link" data-caption="Certificado — Excel Avançado" href="img/excel-avancado.pdf" rel="noopener">Ver certificado (PDF) →</a>
 </div>
 <div class="service-card reveal">
 <div class="service-icon">📉</div>
 <h3>Power BI Essencial</h3>
 <p>Carga horária de 15 horas, concluído em 14/04/2026.</p>
-<a class="cert-link" href="img/power-bi-essencial.pdf" rel="noopener" target="_blank">Ver certificado (PDF) →</a>
+<a class="cert-link pdf-link" data-caption="Certificado — Power BI Essencial" href="img/power-bi-essencial.pdf" rel="noopener">Ver certificado (PDF) →</a>
 </div>
 </div>
 </div>
@@ -605,6 +612,15 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font
 <button aria-label="Fechar" class="lightbox-close" id="lightboxClose">×</button>
 <img alt="" id="lightboxImg" src=""/>
 <video controls="True" id="lightboxVideo" playsinline="True" style="display:none;max-width:92vw;max-height:82vh;border-radius:8px;"></video>
+<div class="lightbox-pdf" id="lightboxPdf">
+<canvas class="lightbox-pdf-page" id="lightboxPdfCanvas"></canvas>
+<div class="lightbox-pdf-nav">
+<button aria-label="Página anterior" id="pdfPrevBtn" type="button">‹</button>
+<span id="pdfPageInfo">1 / 1</span>
+<button aria-label="Próxima página" id="pdfNextBtn" type="button">›</button>
+</div>
+</div>
+<iframe id="lightboxPdfFrame" title="Documento PDF"></iframe>
 <div class="lightbox-caption" id="lightboxCaption"></div>
 </div>
 <div class="group-modal" id="groupModal">
@@ -612,6 +628,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font
 <h3 class="group-modal-title" id="groupModalTitle"></h3>
 <div class="group-modal-grid gallery-grid" id="groupModalGrid"></div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 function toggleCtaMenu(btn){
   var menu = btn.nextElementSibling;
@@ -663,6 +680,67 @@ var lightboxImg = document.getElementById('lightboxImg');
 var lightboxCaption = document.getElementById('lightboxCaption');
 var galleryGrid = document.getElementById('galleryGroups');
 var lightboxVideo = document.getElementById('lightboxVideo');
+var lightboxPdf = document.getElementById('lightboxPdf');
+var pdfCanvas = document.getElementById('lightboxPdfCanvas');
+var pdfPageInfo = document.getElementById('pdfPageInfo');
+var pdfPrevBtn = document.getElementById('pdfPrevBtn');
+var pdfNextBtn = document.getElementById('pdfNextBtn');
+var pdfDoc = null, pdfPageNum = 1, pdfRendering = false;
+var lightboxPdfFrame = document.getElementById('lightboxPdfFrame');
+if (window.pdfjsLib) {
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+}
+function renderPdfPage(num){
+  if(!pdfDoc || pdfRendering) return;
+  pdfRendering = true;
+  pdfDoc.getPage(num).then(function(page){
+    var containerH = window.innerHeight * 0.74;
+    var containerW = window.innerWidth * 0.88;
+    var baseViewport = page.getViewport({scale:1});
+    var scale = Math.min(containerW / baseViewport.width, containerH / baseViewport.height);
+    var viewport = page.getViewport({scale: scale});
+    pdfCanvas.width = viewport.width;
+    pdfCanvas.height = viewport.height;
+    var ctx = pdfCanvas.getContext('2d');
+    page.render({canvasContext: ctx, viewport: viewport}).promise.then(function(){
+      pdfRendering = false;
+      pdfPageInfo.textContent = num + ' / ' + pdfDoc.numPages;
+      pdfPrevBtn.disabled = num <= 1;
+      pdfNextBtn.disabled = num >= pdfDoc.numPages;
+    });
+  });
+}
+pdfPrevBtn.addEventListener('click', function(){
+  if(pdfPageNum > 1){ pdfPageNum--; renderPdfPage(pdfPageNum); }
+});
+pdfNextBtn.addEventListener('click', function(){
+  if(pdfDoc && pdfPageNum < pdfDoc.numPages){ pdfPageNum++; renderPdfPage(pdfPageNum); }
+});
+function openLightboxPdf(url, caption, mode){
+  lightboxImg.style.display = 'none';
+  lightboxVideo.pause();
+  lightboxVideo.style.display = 'none';
+  lightboxVideo.src = '';
+  lightboxCaption.textContent = caption || '';
+  lightbox.classList.add('open');
+  if(mode === 'iframe'){
+    lightboxPdf.style.display = 'none';
+    lightboxPdfFrame.style.display = '';
+    lightboxPdfFrame.src = url;
+    return;
+  }
+  lightboxPdfFrame.style.display = 'none';
+  lightboxPdfFrame.src = '';
+  lightboxPdf.style.display = 'flex';
+  pdfPageNum = 1;
+  pdfDoc = null;
+  pdfPageInfo.textContent = '';
+  if(!window.pdfjsLib){ return; }
+  pdfjsLib.getDocument(url).promise.then(function(doc){
+    pdfDoc = doc;
+    renderPdfPage(pdfPageNum);
+  });
+}
 function openLightboxFromItem(item){
   var video = item.querySelector('video');
   var capEl = item.querySelector('.cap');
@@ -693,7 +771,23 @@ function closeLightbox(){
   lightboxVideo.src='';
   lightboxVideo.style.display = 'none';
   lightboxImg.style.display = '';
+  lightboxPdf.style.display = 'none';
+  pdfDoc = null;
+  pdfPageNum = 1;
+  var pctx = pdfCanvas.getContext('2d');
+  pctx.clearRect(0, 0, pdfCanvas.width, pdfCanvas.height);
+  lightboxPdfFrame.style.display = 'none';
+  lightboxPdfFrame.src = '';
 }
+document.querySelectorAll('.pdf-link').forEach(function(link){
+  link.addEventListener('click', function(e){
+    e.preventDefault();
+    var url = link.getAttribute('data-pdf') || link.getAttribute('href');
+    var caption = link.getAttribute('data-caption') || link.textContent;
+    var mode = link.getAttribute('data-pdf-mode') || 'canvas';
+    openLightboxPdf(url, caption, mode);
+  });
+});
 galleryGrid.addEventListener('click', function(e){
   var expandBtn = e.target.closest('.video-expand-btn');
   if(expandBtn){
