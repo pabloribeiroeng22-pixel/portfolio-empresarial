@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="900" height="560" fill="#F8FAFC"/>
+
+  <!-- top bar -->
+  <rect x="0" y="0" width="900" height="56" fill="#0F172A"/>
+  <circle cx="30" cy="28" r="7" fill="#2563EB"/>
+  <rect x="46" y="21" width="150" height="14" rx="3" fill="#E2E8F0" opacity="0.85"/>
+  <rect x="700" y="18" width="66" height="20" rx="10" fill="#1D4ED8"/>
+  <rect x="780" y="18" width="66" height="20" rx="10" fill="rgba(255,255,255,0.12)"/>
+
+  <!-- KPI cards row -->
+  <g filter="url(#cardShadow)">
+    <rect x="24" y="80" width="200" height="96" rx="12" fill="#FFFFFF"/>
+    <rect x="24" y="80" width="200" height="96" rx="12" fill="none" stroke="#E2E8F0"/>
+  </g>
+  <rect x="44" y="100" width="90" height="10" rx="3" fill="#94A3B8"/>
+  <text x="44" y="145" font-size="30" font-weight="700" fill="#0F172A">128</text>
+  <rect x="44" y="156" width="60" height="8" rx="3" fill="#22C55E"/>
+
+  <g filter="url(#cardShadow)">
+    <rect x="240" y="80" width="200" height="96" rx="12" fill="#FFFFFF"/>
+    <rect x="240" y="80" width="200" height="96" rx="12" fill="none" stroke="#E2E8F0"/>
+  </g>
+  <rect x="260" y="100" width="90" height="10" rx="3" fill="#94A3B8"/>
+  <text x="260" y="145" font-size="30" font-weight="700" fill="#0F172A">87%</text>
+  <rect x="260" y="156" width="140" height="8" rx="3" fill="#E2E8F0"/>
+  <rect x="260" y="156" width="120" height="8" rx="3" fill="#2563EB"/>
+
+  <g filter="url(#cardShadow)">
+    <rect x="456" y="80" width="200" height="96" rx="12" fill="#FFFFFF"/>
+    <rect x="456" y="80" width="200" height="96" rx="12" fill="none" stroke="#E2E8F0"/>
+  </g>
+  <rect x="476" y="100" width="90" height="10" rx="3" fill="#94A3B8"/>
+  <text x="476" y="145" font-size="30" font-weight="700" fill="#0F172A">14</text>
+  <rect x="476" y="156" width="60" height="8" rx="3" fill="#F59E0B"/>
+
+  <g filter="url(#cardShadow)">
+    <rect x="672" y="80" width="204" height="96" rx="12" fill="#FFFFFF"/>
+    <rect x="672" y="80" width="204" height="96" rx="12" fill="none" stroke="#E2E8F0"/>
+  </g>
+  <rect x="692" y="100" width="90" height="10" rx="3" fill="#94A3B8"/>
+  <text x="692" y="145" font-size="30" font-weight="700" fill="#0F172A">4,2</text>
+  <rect x="692" y="156" width="60" height="8" rx="3" fill="#2563EB"/>
+
+  <!-- bar chart panel -->
+  <g filter="url(#cardShadow)">
+    <rect x="24" y="196" width="420" height="200" rx="12" fill="#FFFFFF"/>
+    <rect x="24" y="196" width="420" height="200" rx="12" fill="none" stroke="#E2E8F0"/>
+  </g>
+  <rect x="44" y="216" width="130" height="10" rx="3" fill="#334155"/>
+  <!-- bars -->
+  <rect x="56"  y="300" width="36" height="70" rx="4" fill="url(#barGrad)"/>
+  <rect x="110" y="270" width="36" height="100" rx="4" fill="url(#barGrad)"/>
+  <rect x="164" y="320" width="36" height="50" rx="4" fill="url(#barGrad)"/>
+  <rect x="218" y="250" width="36" height="120" rx="4" fill="url(#barGrad)"/>
+  <rect x="272" y="290" width="36" height="80" rx="4" fill="url(#barGrad)"/>
+  <rect x="326" y="260" width="36" height="110" rx="4" fill="url(#barGrad)"/>
+  <rect x="380" y="310" width="36" height="60" rx="4" fill="url(#barGrad)"/>
+  <line x1="44" y1="372" x2="424" y2="372" stroke="#E2E8F0" stroke-width="2"/>
+  <rect x="56"  y="380" width="36" height="6" rx="3" fill="#CBD5E1"/>
+  <rect x="110" y="380" width="36" height="6" rx="3" fill="#CBD5E1"/>
+  <rect x="164" y="380" width="36" height="6" rx="3" fill="#CBD5E1"/>
+  <rect x="218" y="380" width="36" height="6" rx="3" fill="#CBD5E1"/>
+  <rect x="272" y="380" width="36" height="6" rx="3" fill="#CBD5E1"/>
+  <rect x="326" y="380" width="36" height="6" rx="3" fill="#CBD5E1"/>
+  <rect x="380" y="380" width="36" height="6" rx="3" fill="#CBD5E1"/>
+
+  <!-- donut chart panel -->
+  <g filter="url(#cardShadow)">
+    <rect x="456" y="196" width="200" height="200" rx="12" fill="#FFFFFF"/>
+    <rect x="456" y="196" width="200" height="200" rx="12" fill="none" stroke="#E2E8F0"/>
+  </g>
+  <rect x="476" y="216" width="110" height="10" rx="3" fill="#334155"/>
+  <g transform="translate(556,300)">
+    <circle r="60" fill="none" stroke="#E2E8F0" stroke-width="22"/>
+    <circle r="60" fill="none" stroke="#2563EB" stroke-width="22"
+      stroke-dasharray="226 377" stroke-dashoffset="0" transform="rotate(-90)"/>
+    <circle r="60" fill="none" stroke="#1D4ED8" stroke-width="22"
+      stroke-dasharray="94 377" stroke-dashoffset="-226" transform="rotate(-90)"/>
+    <circle r="60" fill="none" stroke="#94A3B8" stroke-width="22"
+      stroke-dasharray="57 377" stroke-dashoffset="-320" transform="rotate(-90)"/>
+    <text text-anchor="middle" y="8" font-size="22" font-weight="700" fill="#0F172A">60%</text>
+  </g>
+  <rect x="476" y="372" width="10" height="10" rx="2" fill="#2563EB"/>
+  <rect x="536" y="372" width="10" height="10" rx="2" fill="#1D4ED8"/>
+  <rect x="596" y="372" width="10" height="10" rx="2" fill="#94A3B8"/>
+
+  <!-- line chart panel -->
+  <g filter="url(#cardShadow)">
+    <rect x="672" y="196" width="204" height="200" rx="12" fill="#FFFFFF"/>
+    <rect x="672" y="196" width="204" height="200" rx="12" fill="none" stroke="#E2E8F0"/>
+  </g>
+  <rect x="692" y="216" width="120" height="10" rx="3" fill="#334155"/>
+  <polyline points="692,340 722,320 752,335 782,290 812,300 842,260"
+    fill="none" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="692,340 722,320 752,335 782,290 812,300 842,260 842,376 692,376"
+    fill="#2563EB" opacity="0.08"/>
+  <circle cx="842" cy="260" r="5" fill="#1D4ED8"/>
+  <line x1="692" y1="376" x2="862" y2="376" stroke="#E2E8F0" stroke-width="2"/>
+
+  <!-- bottom table-like panel -->
+  <g filter="url(#cardShadow)">
+    <rect x="24" y="412" width="852" height="128" rx="12" fill="#FFFFFF"/>
+    <rect x="24" y="412" width="852" height="128" rx="12" fill="none" stroke="#E2E8F0"/>
+  </g>
+  <rect x="44" y="432" width="140" height="10" rx="3" fill="#334155"/>
+  <line x1="44" y1="454" x2="852" y2="454" stroke="#E2E8F0" stroke-width="1.5"/>
+  <g fill="#CBD5E1">
+    <rect x="44"  y="468" width="180" height="9" rx="3"/>
+    <rect x="260" y="468" width="120" height="9" rx="3"/>
+    <rect x="420" y="468" width="90"  height="9" rx="3"/>
+    <rect x="550" y="468" width="130" height="9" rx="3"/>
+    <rect x="720" y="468" width="100" height="9" rx="3"/>
+  </g>
+  <g fill="#E2E8F0">
+    <rect x="44"  y="490" width="180" height="9" rx="3"/>
+    <rect x="260" y="490" width="120" height="9" rx="3"/>
+    <rect x="420" y="490" width="90"  height="9" rx="3"/>
+    <rect x="550" y="490" width="130" height="9" rx="3"/>
+    <rect x="720" y="490" width="100" height="9" rx="3"/>
+  </g>
+  <g fill="#E2E8F0">
+    <rect x="44"  y="512" width="180" height="9" rx="3"/>
+    <rect x="260" y="512" width="120" height="9" rx="3"/>
+    <rect x="420" y="512" width="90"  height="9" rx="3"/>
+    <rect x="550" y="512" width="130" height="9" rx="3"/>
+    <rect x="720" y="512" width="100" height="9" rx="3"/>
+  </g>
+</svg>
