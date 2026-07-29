@@ -122,7 +122,7 @@ p{margin:0;}
 .laudos-highlight-head{display:flex;align-items:center;gap:12px;margin-bottom:22px;}
 .laudos-highlight-head .service-icon{background:rgba(37,99,235,.22);}
 .laudos-highlight-head h3{color:#fff;font-size:20px;}
-.laudos-sub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+.laudos-sub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;}
 .laudos-sub-grid .item{border-left:3px solid var(--signal);padding:2px 0 2px 14px;}
 .laudos-sub-grid .item h4{font-size:14px;font-weight:700;margin:0 0 6px;color:#fff;}
 .laudos-sub-grid .item p{font-size:13.5px;color:rgba(255,255,255,.68);margin:0;}
@@ -187,11 +187,12 @@ img,video,.hero-slide,.gallery-item,.sobre-photo,.project-photo,.presenca-photo{
 @media(max-width:700px){.dif-list{grid-template-columns:1fr;}}
 
 /* ===== números ===== */
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;}
+.stats-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;}
 .stat-card{text-align:left;}
-.stat-num{font-family:var(--font-display);font-weight:800;font-size:clamp(32px,4vw,44px);color:var(--signal);letter-spacing:-.02em;}
+.stat-num{font-family:var(--font-display);font-weight:800;font-size:clamp(22px,2.6vw,32px);color:var(--signal);letter-spacing:-.02em;}
 .stat-label{font-size:14px;color:var(--steel);margin-top:6px;}
-@media(max-width:760px){.stats-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:900px){.stats-grid{grid-template-columns:1fr 1fr 1fr;}}
+@media(max-width:560px){.stats-grid{grid-template-columns:1fr 1fr;}}
 
 /* ===== depoimentos ===== */
 .testi-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:20px;}
@@ -335,20 +336,6 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font
 </div>
 </div>
 </section>
-<section class="section">
-<div class="wrap">
-<div class="section-head reveal">
-<span class="eyebrow">No dia a dia</span>
-<h2>Presença em campo</h2>
-</div>
-<div class="presenca-strip">
-<div class="presenca-photo reveal"><img alt="Visita técnica a fábrica" loading="lazy" src="img/presenca-01.jpg"/><div class="cap">Visita técnica — fábrica</div></div>
-<div class="presenca-photo reveal"><img alt="Acompanhamento de reforma" loading="lazy" src="img/presenca-02.jpg"/><div class="cap">Acompanhamento de reforma</div></div>
-<div class="presenca-photo reveal"><img alt="Levantamento topográfico" loading="lazy" src="img/presenca-03.jpg"/><div class="cap">Levantamento topográfico</div></div>
-<div class="presenca-photo reveal"><img alt="Visita técnica a obra industrial" loading="lazy" src="img/presenca-04.jpg"/><div class="cap">Visita técnica — obra industrial</div></div>
-</div>
-</div>
-</section>
 <section class="section alt" id="projetos">
 <div class="wrap">
 <div class="section-head reveal">
@@ -418,7 +405,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font
 <div class="item"><h4>Perícia judicial e avaliação imobiliária</h4><p>Laudos técnicos unificados de engenharia para processos judiciais, com aplicação dos Métodos Comparativo Direto e Evolutivo (ABNT NBR 14.653), pesquisa de mercado e registro fotográfico georreferenciado como prova técnica.</p></div>
 <div class="item"><h4>Perícia de vícios e qualidade construtiva</h4><p>Análise técnica de divergências entre o contratado (memorial descritivo) e o executado, com identificação de vícios e defeitos construtivos e respectiva ART.</p></div>
 <div class="item"><h4>Revisão crítica de laudos e pareceres</h4><p>Análise técnica de avaliações e pareceres de terceiros, com identificação de inconsistências metodológicas e de dados frente às normas técnicas vigentes.</p></div>
-<div class="item"><h4>Aprovação técnica de projetos</h4><p>Relatórios de análise e aprovação de projetos executivos, com cartas de aprovação técnica.</p></div>
+
 </div>
 </div>
 </div>
@@ -472,7 +459,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font
 <div class="stats-grid">
 <div class="stat-card reveal"><div class="stat-num">25+</div><div class="stat-label">anos de experiência</div></div>
 <div class="stat-card reveal"><div class="stat-num">384</div><div class="stat-label">ARTs principais acervadas</div></div>
-<div class="stat-card reveal"><div class="stat-num">R$100M+</div><div class="stat-label">em obras e contratos geridos</div></div>
+<div class="stat-card reveal"><div class="stat-num">R$100 milhões+</div><div class="stat-label">em obras e contratos geridos</div></div>
 <div class="stat-card reveal"><div class="stat-num">~192 ha</div><div class="stat-label">área executada (≈ 1.920.722 m²)</div></div>
 <div class="stat-card reveal"><div class="stat-num">340+</div><div class="stat-label">obras de arruamento acervadas</div></div>
 <div class="stat-card reveal"><div class="stat-num">8</div><div class="stat-label">municípios atendidos</div></div>
@@ -503,7 +490,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font
 </div>
 <div class="laudos-sub-grid">
 <div class="item"><h4>Graduação — Engenharia Civil</h4><p>Universidade Estadual de Ponta Grossa (UEPG), concluída em 2005.</p></div>
-<div class="item"><h4>Pós-graduação — Especialização em Gestão Ambiental</h4><p>UEPG, Departamento de Engenharia Civil / NUCLEAM, carga horária de 383 horas, concluída em 2008 (certidão emitida em 2009).</p></div>
+<div class="item"><h4>Pós-graduação — Especialização em Gestão Ambiental</h4><p>UEPG, concluída em 2009.</p></div>
 </div>
 </div>
 <div class="laudos-highlight panel-soft reveal" style="margin-top:20px;">
