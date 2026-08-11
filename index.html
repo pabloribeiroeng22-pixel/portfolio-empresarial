@@ -60,8 +60,15 @@ p{margin:0;}
 .nav.scrolled{background:rgba(15,23,42,.92);backdrop-filter:blur(10px);padding:12px 0;box-shadow:0 1px 0 rgba(255,255,255,.06);}
 .nav-cta{display:none;}
 @media(min-width:720px){.nav-cta{display:inline-flex;padding:9px 18px;font-size:13px;}}
-.nav-whatsapp{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#25D366;margin-right:14px;flex-shrink:0;}
+.nav-whatsapp{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#25D366;margin-right:10px;flex-shrink:0;position:relative;}
 .nav-whatsapp svg{width:18px;height:18px;fill:#fff;}
+.nav-instagram{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%);margin-right:14px;flex-shrink:0;position:relative;}
+.nav-instagram svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;}
+.nav-whatsapp .pulse-ring,.nav-instagram .pulse-ring{position:absolute;inset:0;border-radius:50%;}
+.nav-whatsapp .pulse-ring{box-shadow:0 0 0 0 rgba(37,211,102,.55);animation:pulse-wa 2.2s ease-out infinite;}
+.nav-instagram .pulse-ring{box-shadow:0 0 0 0 rgba(214,36,159,.55);animation:pulse-ig 2.2s ease-out infinite;}
+@keyframes pulse-wa{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55);}70%{box-shadow:0 0 0 12px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+@keyframes pulse-ig{0%{box-shadow:0 0 0 0 rgba(214,36,159,.55);}70%{box-shadow:0 0 0 12px rgba(214,36,159,0);}100%{box-shadow:0 0 0 0 rgba(214,36,159,0);}}
 .nav-left{display:flex;align-items:center;}
 .cta-dropdown{position:relative;display:inline-block;}
 .cta-menu{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 16px 32px -14px rgba(15,23,42,.35);padding:6px;min-width:200px;display:none;z-index:60;}
@@ -287,14 +294,15 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font
 /* Botão flutuante WhatsApp */
 .wa-float{position:fixed;bottom:22px;right:22px;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px -8px rgba(0,0,0,.4);z-index:90;}
 .wa-float svg{width:30px;height:30px;fill:#fff;}
-.wa-float .pulse-ring{box-shadow:0 0 0 0 rgba(37,211,102,.55);}
+.wa-float .pulse-ring{position:absolute;inset:0;border-radius:50%;box-shadow:0 0 0 0 rgba(37,211,102,.55);animation:pulse-wa 2.2s ease-out infinite;}
 </style>
 </head>
 <body>
 <nav class="nav" id="nav">
 <div class="wrap">
 <div class="nav-left">
-<a class="nav-whatsapp" href="https://wa.me/5542999189446" rel="noopener" target="_blank" title="Chamar no WhatsApp"><svg viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.33C8.51 21.47 10.2 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.2-.47.03-.94.2-3.15-.66-2.66-1.06-4.36-3.78-4.5-3.96-.13-.18-1.08-1.43-1.08-2.73 0-1.3.68-1.94.92-2.2.24-.27.53-.33.7-.33.18 0 .35 0 .5.01.16.01.38-.06.6.46.22.53.75 1.83.82 1.96.07.13.11.29.02.47-.09.18-.14.29-.27.44-.13.16-.28.35-.4.47-.13.13-.27.27-.12.53.16.27.7 1.15 1.5 1.86 1.03.92 1.9 1.2 2.17 1.34.27.13.42.11.58-.07.16-.18.66-.77.84-1.03.18-.27.35-.22.6-.13.24.09 1.55.73 1.82.86.27.13.44.2.5.31.07.11.07.65-.15 1.27z"></path></svg></a>
+<a class="nav-whatsapp" href="https://wa.me/5542999189446" rel="noopener" target="_blank" title="Chamar no WhatsApp"><span class="pulse-ring"></span><svg viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.33C8.51 21.47 10.2 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.2-.47.03-.94.2-3.15-.66-2.66-1.06-4.36-3.78-4.5-3.96-.13-.18-1.08-1.43-1.08-2.73 0-1.3.68-1.94.92-2.2.24-.27.53-.33.7-.33.18 0 .35 0 .5.01.16.01.38-.06.6.46.22.53.75 1.83.82 1.96.07.13.11.29.02.47-.09.18-.14.29-.27.44-.13.16-.28.35-.4.47-.13.13-.27.27-.12.53.16.27.7 1.15 1.5 1.86 1.03.92 1.9 1.2 2.17 1.34.27.13.42.11.58-.07.16-.18.66-.77.84-1.03.18-.27.35-.22.6-.13.24.09 1.55.73 1.82.86.27.13.44.2.5.31.07.11.07.65-.15 1.27z"></path></svg></a>
+<a class="nav-instagram" href="https://www.instagram.com/pablo_engenharia/" rel="noopener" target="_blank" title="Seguir no Instagram"><span class="pulse-ring"></span><svg viewbox="0 0 24 24"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
 <div class="nav-logo">Pablo Ribeiro <span>Engenharia</span></div>
 </div>
 <ul class="nav-links">
