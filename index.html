@@ -259,6 +259,35 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font
 .dashboard-showcase{margin-top:8px;background:#FFFFFF;border:1px solid var(--line);border-radius:16px;padding:24px;text-align:center;}
 .dashboard-showcase img{width:100%;max-width:900px;height:auto;border-radius:10px;}
 .dashboard-caption{margin-top:14px;font-size:12.5px;color:var(--steel);}
+
+/* Riscos */
+.riscos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+@media(max-width:900px){.riscos-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.riscos-grid{grid-template-columns:1fr;}}
+.risco-card{background:#fff;border:1px solid var(--line);border-left:3px solid #DC2626;border-radius:var(--radius);padding:22px 20px;}
+.risco-card .risco-icon{font-size:22px;margin-bottom:10px;}
+.risco-card h3{font-size:16px;margin-bottom:6px;}
+.risco-card p{font-size:14px;color:var(--steel);}
+
+/* FAQ */
+.faq-list{max-width:760px;margin:0 auto;}
+.faq-item{border-bottom:1px solid var(--line);padding:6px 0;}
+.faq-item summary{cursor:pointer;list-style:none;font-weight:700;font-size:15.5px;color:var(--ink);padding:14px 30px 14px 0;position:relative;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';position:absolute;right:0;top:12px;font-size:22px;color:var(--signal);transition:transform .2s ease;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item p{padding:0 0 16px;color:var(--steel);font-size:14.5px;line-height:1.6;}
+
+/* Formulário de contato */
+.lead-form{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;max-width:420px;margin:0 auto;}
+.lead-form input{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;font-family:var(--font-body);font-size:14.5px;margin-bottom:12px;background:var(--mist);}
+.lead-form input:focus{outline:2px solid var(--signal);outline-offset:1px;}
+.lead-form button{width:100%;}
+
+/* Botão flutuante WhatsApp */
+.wa-float{position:fixed;bottom:22px;right:22px;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px -8px rgba(0,0,0,.4);z-index:90;}
+.wa-float svg{width:30px;height:30px;fill:#fff;}
+.wa-float .pulse-ring{box-shadow:0 0 0 0 rgba(37,211,102,.55);}
 </style>
 </head>
 <body>
@@ -273,6 +302,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font
 <li><a href="#servicos">Serviços</a></li>
 <li><a href="#galeria">Trabalhos</a></li>
 <li><a href="#formacao">Formação</a></li>
+<li><a href="#duvidas">Dúvidas</a></li>
 <li><a href="#depoimentos">Depoimentos</a></li>
 </ul>
 <div class="cta-dropdown">
@@ -418,6 +448,23 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font
 </div>
 </div>
 </section>
+<section class="section" id="riscos">
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow">Por que não abrir mão</span>
+<h2>Os riscos de seguir sem acompanhamento técnico</h2>
+<p>Decisões de obra e gestão tomadas sem respaldo técnico custam mais caro depois — em tempo, dinheiro e segurança.</p>
+</div>
+<div class="riscos-grid">
+<div class="risco-card reveal"><div class="risco-icon">⏱️</div><h3>Atraso e retrabalho</h3><p>Cronograma sem controle vira obra que não termina, com custo de retrabalho embutido.</p></div>
+<div class="risco-card reveal"><div class="risco-icon">⚖️</div><h3>Problemas jurídicos e contratuais</h3><p>Contrato mal formalizado ou escopo pouco claro é a origem da maioria dos litígios entre cliente e prestador.</p></div>
+<div class="risco-card reveal"><div class="risco-icon">🧱</div><h3>Falhas estruturais não detectadas</h3><p>Sem inspeção técnica, manifestações patológicas avançam silenciosamente até virarem risco real.</p></div>
+<div class="risco-card reveal"><div class="risco-icon">💸</div><h3>Estouro de orçamento</h3><p>Sem planejamento físico-financeiro, o custo real da obra só aparece quando já é tarde para corrigir.</p></div>
+<div class="risco-card reveal"><div class="risco-icon">📉</div><h3>Desvalorização do imóvel</h3><p>Obra ou reforma sem laudo e ART reduz o valor de mercado e dificulta futura venda ou financiamento.</p></div>
+<div class="risco-card reveal"><div class="risco-icon">👥</div><h3>Equipe e agenda fora de controle</h3><p>Sem gestão de tarefas e prazos, escritórios e obras perdem produtividade sem perceber onde.</p></div>
+</div>
+</div>
+</section>
 <section class="section" id="galeria">
 <div class="wrap">
 <div class="section-head reveal">
@@ -558,6 +605,36 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font
 </div></div>
 </div>
 </section>
+<section class="section alt" id="duvidas">
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow">Dúvidas frequentes</span>
+<h2>Perguntas comuns</h2>
+</div>
+<div class="faq-list">
+<details class="faq-item reveal">
+<summary>O que é uma ART e por que ela importa?</summary>
+<p>ART é a Anotação de Responsabilidade Técnica, registrada no CREA. Ela dá validade legal ao serviço prestado por um engenheiro e é o que garante respaldo jurídico ao cliente em caso de problema futuro.</p>
+</details>
+<details class="faq-item reveal">
+<summary>Quando devo contratar um laudo técnico?</summary>
+<p>Antes de comprar, vender ou reformar um imóvel, em disputas de vizinhança, para inspeção predial periódica, ou sempre que houver dúvida sobre a segurança e a integridade de uma edificação.</p>
+</details>
+<details class="faq-item reveal">
+<summary>Como funciona a consultoria em gestão para escritórios técnicos?</summary>
+<p>Começa com um diagnóstico da rotina do escritório, seguido da implementação de uma ferramenta de gestão sob medida e, se fizer sentido, acompanhamento mensal contínuo. Mais detalhes na seção Serviços.</p>
+</details>
+<details class="faq-item reveal">
+<summary>Vocês atendem só Ponta Grossa ou toda a região?</summary>
+<p>A base é em Ponta Grossa/PR, mas o atendimento já cobriu diversas cidades dos Campos Gerais e de outros estados, conforme a necessidade do projeto.</p>
+</details>
+<details class="faq-item reveal">
+<summary>Como funciona o primeiro contato?</summary>
+<p>É só chamar no WhatsApp ou preencher o formulário abaixo contando a necessidade — a partir daí, alinhamos escopo, prazo e valor antes de qualquer compromisso.</p>
+</details>
+</div>
+</div>
+</section>
 <section class="section" id="depoimentos">
 <div class="wrap">
 <div class="section-head reveal">
@@ -592,6 +669,11 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font
 <a href="mailto:ribeiro.engpablo@gmail.com"><svg class="ic" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M3 6h18v12H3z"></path><path d="M3 6l9 7 9-7"></path></svg>E-mail</a>
 </div>
 </div>
+<form class="lead-form reveal" id="leadForm" style="margin-top:36px;" onsubmit="return enviarLead(event)">
+<input autocomplete="name" id="leadNome" placeholder="Seu nome" required type="text"/>
+<input autocomplete="tel" id="leadWhats" placeholder="Seu WhatsApp (com DDD)" required type="tel"/>
+<button class="btn btn-primary" type="submit">Solicitar contato</button>
+</form>
 </div>
 </section>
 <footer>
@@ -939,6 +1021,19 @@ var siteUpdates = [
 <button aria-label="Fechar aviso" class="update-toast-close" id="updateToastClose" type="button">×</button>
 </div>
 <!-- Cloudflare Web Analytics --><script defer type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "504461c96c5141af83d2afdac88de947"}'></script><!-- End Cloudflare Web Analytics -->
+<a aria-label="Chamar no WhatsApp" class="wa-float" href="https://wa.me/5542999189446" rel="noopener" target="_blank"><span class="pulse-ring"></span><svg viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.33C8.51 21.47 10.2 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.2-.47.03-.94.2-3.15-.66-2.66-1.06-4.36-3.78-4.5-3.96-.13-.18-1.08-1.43-1.08-2.73 0-1.3.68-1.94.92-2.2.24-.27.53-.33.7-.33.18 0 .35 0 .5.01.16.01.38-.06.6.46.22.53.75 1.83.82 1.96.07.13.11.29.02.47-.09.18-.14.29-.27.44-.13.16-.28.35-.4.47-.13.13-.27.27-.12.53.16.27.7 1.15 1.5 1.86 1.03.92 1.9 1.2 2.17 1.34.27.13.42.11.58-.07.16-.18.66-.77.84-1.03.18-.27.35-.22.6-.13.24.09 1.55.73 1.82.86.27.13.44.2.5.31.07.11.07.65-.15 1.27z"></path></svg></a>
+<script>
+function enviarLead(e){
+  e.preventDefault();
+  var nome = document.getElementById('leadNome').value.trim();
+  var whats = document.getElementById('leadWhats').value.trim();
+  if(!nome || !whats) return false;
+  var texto = 'Ol\u00e1, me chamo ' + nome + '. Meu WhatsApp \u00e9 ' + whats + '. Gostaria de solicitar um contato.';
+  var url = 'https://wa.me/5542999189446?text=' + encodeURIComponent(texto);
+  window.open(url, '_blank');
+  return false;
+}
+</script>
 </body>
 </html>
 

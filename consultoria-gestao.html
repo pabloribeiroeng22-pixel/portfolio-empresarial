@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Consultoria em Gestão para Escritórios Técnicos — Pablo Ribeiro Engenharia</title>
+<meta content="Consultoria em gestão para escritórios de arquitetura e engenharia: agenda, obras, contratos, equipe e captação de clientes, com ferramentas sob medida." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#0F172A;
+  --paper:#FFFFFF;
+  --mist:#F1F5F9;
+  --signal:#2563EB;
+  --signal-deep:#1D4ED8;
+  --steel:#64748B;
+  --line:#E2E8F0;
+  --radius:14px;
+  --wrap:980px;
+  --font-display:'Manrope',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:var(--font-body);color:var(--ink);background:var(--paper);line-height:1.6;}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px;}
+h1,h2,h3{font-family:var(--font-display);color:var(--ink);margin:0;}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal);font-weight:500;}
+a{color:inherit;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:10px;font-family:var(--font-body);font-weight:700;font-size:15px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .15s ease;}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{background:var(--signal);color:#fff;}
+.btn-primary:hover{background:var(--signal-deep);}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line);}
+
+/* topo */
+.topbar{background:var(--ink);color:#fff;padding:14px 0;}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;}
+.topbar-logo{font-family:var(--font-display);font-weight:800;font-size:15px;}
+.topbar a.back{font-family:var(--font-mono);font-size:12.5px;color:rgba(255,255,255,.7);text-decoration:none;}
+
+/* hero */
+.hero{background:linear-gradient(180deg,var(--ink) 0%,#16213E 100%);color:#fff;padding:72px 0 60px;text-align:center;}
+.hero h1{font-size:clamp(30px,4vw,44px);line-height:1.15;margin-top:16px;color:#fff;}
+.hero p.lead{font-size:17px;color:rgba(255,255,255,.72);max-width:640px;margin:18px auto 0;}
+.hero-ctas{margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.hero-byline{margin-top:28px;font-family:var(--font-mono);font-size:12.5px;color:rgba(255,255,255,.5);}
+
+/* secao geral */
+.section{padding:64px 0;}
+.section.alt{background:var(--mist);}
+.section-head{text-align:center;max-width:640px;margin:0 auto 40px;}
+.section-head h2{font-size:clamp(24px,3vw,32px);margin-top:12px;}
+.section-head p{color:var(--steel);margin-top:12px;font-size:15.5px;}
+
+/* objecao */
+.objecao-box{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--signal);border-radius:var(--radius);padding:32px 30px;max-width:820px;margin:0 auto;}
+.objecao-box p{font-size:16px;line-height:1.75;color:var(--ink);}
+.objecao-box p+p{margin-top:16px;}
+
+/* etapas */
+.etapas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+@media(max-width:860px){.etapas-grid{grid-template-columns:1fr;}}
+.etapa-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+.etapa-head{background:var(--ink);color:#fff;padding:18px 22px;}
+.etapa-head span{font-family:var(--font-mono);font-size:11.5px;color:#93C5FD;font-weight:700;letter-spacing:.06em;}
+.etapa-head h3{font-size:19px;margin-top:4px;color:#fff;}
+.etapa-body{padding:22px;}
+.etapa-body p{font-size:14.5px;color:var(--steel);margin-bottom:14px;}
+.etapa-body ul{margin:0;padding-left:18px;}
+.etapa-body li{font-size:14px;margin-bottom:8px;}
+.etapa-foot{font-family:var(--font-mono);font-size:11.5px;color:var(--steel);border-top:1px solid var(--line);padding:14px 22px;}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:780px;margin:0 auto;}
+.chip{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:999px;padding:9px 16px;font-size:13px;font-weight:600;color:var(--ink);}
+
+/* faq */
+.faq-list{max-width:760px;margin:0 auto;}
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-item summary{cursor:pointer;list-style:none;font-weight:700;font-size:15.5px;color:var(--ink);padding:16px 30px 16px 0;position:relative;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';position:absolute;right:0;top:14px;font-size:22px;color:var(--signal);transition:transform .2s ease;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item p{padding:0 0 18px;color:var(--steel);font-size:14.5px;line-height:1.65;}
+
+/* form + responsavel */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;}
+@media(max-width:800px){.contact-grid{grid-template-columns:1fr;}}
+.resp-card h2{font-size:24px;}
+.resp-item{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:14.5px;color:var(--ink);}
+.resp-item .ic{width:20px;height:20px;color:var(--signal);flex-shrink:0;}
+.lead-form{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px;}
+.lead-form input{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;font-family:var(--font-body);font-size:14.5px;margin-bottom:12px;background:var(--mist);}
+.lead-form input:focus{outline:2px solid var(--signal);outline-offset:1px;}
+.lead-form button{width:100%;justify-content:center;}
+
+footer{background:var(--ink);color:rgba(255,255,255,.6);padding:26px 0;text-align:center;font-size:12.5px;}
+footer a{color:rgba(255,255,255,.8);text-decoration:none;}
+
+.wa-float{position:fixed;bottom:22px;right:22px;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px -8px rgba(0,0,0,.4);z-index:90;}
+.wa-float svg{width:30px;height:30px;fill:#fff;}
+.pulse-ring{position:absolute;inset:0;border-radius:50%;box-shadow:0 0 0 0 rgba(37,211,102,.55);animation:pulse-wa 2.2s ease-out infinite;}
+@keyframes pulse-wa{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55);}70%{box-shadow:0 0 0 14px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+<div class="wrap">
+<div class="topbar-logo">Pablo Ribeiro Engenharia</div>
+<a class="back" href="index.html">← Voltar ao site principal</a>
+</div>
+</div>
+
+<section class="hero">
+<div class="wrap">
+<span class="eyebrow" style="color:#93C5FD;">Consultoria especializada</span>
+<h1>Consultoria em Gestão para Escritórios Técnicos</h1>
+<p class="lead">Organização de agenda, obras, contratos, equipe e captação de clientes — com ferramentas de gestão sob medida para escritórios de arquitetura e engenharia.</p>
+<div class="hero-ctas">
+<a class="btn btn-primary" href="https://wa.me/5542999189446?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20consultoria%20em%20gest%C3%A3o%20para%20escrit%C3%B3rios%20t%C3%A9cnicos." rel="noopener" target="_blank">Solicitar diagnóstico</a>
+<a class="btn btn-ghost" href="#duvidas" style="color:#fff;border-color:rgba(255,255,255,.3);">Ver dúvidas frequentes</a>
+</div>
+<div class="hero-byline">Pablo Rodrigo Ribeiro · Engenheiro Civil · CREA-PR 83.338/D-PR</div>
+</div>
+</section>
+
+<section class="section">
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow">Por que um engenheiro</span>
+<h2>Antes de mais nada, uma pergunta honesta</h2>
+</div>
+<div class="objecao-box">
+<p>É esperado que a primeira reação, ao ouvir "engenheiro civil oferecendo consultoria de gestão para escritório de arquitetura", seja de estranhamento. Por isso vale endereçar isso de forma direta, antes de qualquer outra coisa: esta consultoria não ensina arquitetura. Não trata de projeto, estética ou criação — isso permanece inteiramente com o arquiteto. O que está em jogo é gestão: agenda, contrato, cronograma, equipe e captação de clientes. E gestão não é uma habilidade da arquitetura nem da engenharia — é uma terceira disciplina, que nenhuma das duas formações ensina de verdade.</p>
+<p style="margin-top:16px;color:var(--steel);font-size:14.5px;">A credencial que sustenta esta consultoria não é a de projetista, mas a de gestor de obras, contratos e equipes ao longo de mais de 25 anos de carreira — incluindo passagem como professor universitário em Planejamento e Controle de Obras e formação recente e formal em gestão de projetos e liderança.</p>
+</div>
+</div>
+</section>
+
+<section class="section alt">
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow">Como funciona</span>
+<h2>Três etapas, contratáveis juntas ou separadas</h2>
+<p>Escritórios de arquitetura e engenharia costumam acumular obras, contratos, clientes e equipe em paralelo — e a gestão dessa rotina normalmente é feita "no improviso". Esta consultoria resolve isso de forma estruturada.</p>
+</div>
+<div class="etapas-grid">
+
+<div class="etapa-card">
+<div class="etapa-head"><span>ETAPA 1</span><h3>Diagnóstico + Plano de Ação</h3></div>
+<div class="etapa-body">
+<p>Um raio-x completo da operação — rotina, obras e também como o escritório atrai clientes hoje.</p>
+<ul>
+<li>Reunião de imersão (1h30–2h)</li>
+<li>Mapeamento dos canais de captação já usados</li>
+<li>Pontos de perda identificados e priorizados</li>
+<li>Documento com plano de ação</li>
+</ul>
+</div>
+<div class="etapa-foot">Prazo: 1 semana · Porta de entrada</div>
+</div>
+
+<div class="etapa-card">
+<div class="etapa-head"><span>ETAPA 2</span><h3>Implementação de Ferramenta</h3></div>
+<div class="etapa-body">
+<p>Uma ferramenta de gestão enxuta, adaptada ao fluxo real do escritório — mesmo modelo já validado na prática pelo consultor.</p>
+<ul>
+<li>Cadastro de obras georreferenciado</li>
+<li>Cronograma interno x externo</li>
+<li>Painel de equipe (estilo Kanban)</li>
+<li>Ferramenta hospedada + treinamento</li>
+</ul>
+</div>
+<div class="etapa-foot">Prazo: 2 a 4 semanas · Diferencial real</div>
+</div>
+
+<div class="etapa-card">
+<div class="etapa-head"><span>ETAPA 3</span><h3>Acompanhamento Contínuo</h3></div>
+<div class="etapa-body">
+<p>O papel de "accountability partner": cobrança externa e profissional dos compromissos assumidos — o que profissionais criativos raramente sustentam sozinhos.</p>
+<ul>
+<li>Reunião mensal curta</li>
+<li>Indicadores de obra e equipe</li>
+<li>Indicadores de captação de clientes</li>
+<li>Ajustes contínuos na ferramenta</li>
+</ul>
+</div>
+<div class="etapa-foot">Mensalidade contínua · Receita previsível</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow">Escopo completo</span>
+<h2>Temas também cobertos na consultoria</h2>
+</div>
+<div class="chips">
+<span class="chip">Georreferenciamento de obras</span>
+<span class="chip">Gestão de contratos</span>
+<span class="chip">Cronograma interno x externo</span>
+<span class="chip">Distribuição de tarefas (Kanban)</span>
+<span class="chip">Indicadores de produtividade</span>
+<span class="chip">Canais de captação de clientes</span>
+<span class="chip">Frequência e alcance de divulgação</span>
+<span class="chip">Accountability (cobrança externa)</span>
+</div>
+</div>
+</section>
+
+<section class="section alt" id="duvidas">
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow">Dúvidas frequentes</span>
+<h2>Perguntas comuns sobre a consultoria</h2>
+</div>
+<div class="faq-list">
+<details class="faq-item" open="">
+<summary>Um engenheiro pode mesmo orientar a gestão de um escritório de arquitetura?</summary>
+<p>Sim — porque o que está sendo oferecido não é conhecimento de arquitetura, e sim gestão: agenda, contrato, cronograma, equipe e captação de clientes. É uma disciplina separada, que nenhuma das duas formações ensina de verdade, e que pode vir de fora de qualquer uma delas.</p>
+</details>
+<details class="faq-item">
+<summary>Preciso contratar as três etapas de uma vez?</summary>
+<p>Não. Cada etapa é independente e pode ser contratada isoladamente, começando pela mais simples (diagnóstico) e avançando conforme fizer sentido para o escritório.</p>
+</details>
+<details class="faq-item">
+<summary>A ferramenta é genérica ou feita sob medida?</summary>
+<p>É adaptada ao fluxo real de cada escritório — módulos como cadastro de obras, cronograma e painel de equipe são configurados conforme a prioridade identificada no diagnóstico, não uma planilha padrão.</p>
+</details>
+<details class="faq-item">
+<summary>Por que existe uma etapa de acompanhamento mensal?</summary>
+<p>Porque ferramenta sozinha não resolve — a maior parte dos escritórios já tentou algo (Trello, Monday, planilha) e abandonou por falta de rotina de cobrança. A etapa 3 existe justamente para sustentar esse hábito ao longo do tempo.</p>
+</details>
+<details class="faq-item">
+<summary>O atendimento é presencial ou remoto?</summary>
+<p>Modelo híbrido: presencial onde presencial gera valor real (diagnóstico, observação de equipe, visitas a obra, reuniões de acompanhamento), digital onde é mais prático (a ferramenta em si, consultas rápidas).</p>
+</details>
+</div>
+</div>
+</section>
+
+<section class="section" id="contato">
+<div class="wrap">
+<div class="contact-grid">
+<div class="resp-card">
+<span class="eyebrow">Fale comigo</span>
+<h2 style="margin-top:10px;">Responsável Técnico</h2>
+<div class="resp-item"><svg class="ic" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Pablo Rodrigo Ribeiro — Engenheiro Civil</div>
+<div class="resp-item"><svg class="ic" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg> CREA-PR 83.338/D-PR</div>
+<div class="resp-item"><svg class="ic" fill="#25D366" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.33C8.51 21.47 10.2 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.2-.47.03-.94.2-3.15-.66-2.66-1.06-4.36-3.78-4.5-3.96-.13-.18-1.08-1.43-1.08-2.73 0-1.3.68-1.94.92-2.2.24-.27.53-.33.7-.33.18 0 .35 0 .5.01.16.01.38-.06.6.46.22.53.75 1.83.82 1.96.07.13.11.29.02.47-.09.18-.14.29-.27.44-.13.16-.28.35-.4.47-.13.13-.27.27-.12.53.16.27.7 1.15 1.5 1.86 1.03.92 1.9 1.2 2.17 1.34.27.13.42.11.58-.07.16-.18.66-.77.84-1.03.18-.27.35-.22.6-.13.24.09 1.55.73 1.82.86.27.13.44.2.5.31.07.11.07.65-.15 1.27z"></path></svg> (42) 9 9918-9446</div>
+<div class="resp-item"><svg class="ic" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Ponta Grossa/PR — atendimento regional</div>
+</div>
+<form class="lead-form" id="leadForm" onsubmit="return enviarLead(event)">
+<p style="margin:0 0 16px;font-size:14.5px;color:var(--steel);">Deixe seus dados que entramos em contato:</p>
+<input autocomplete="name" id="leadNome" placeholder="Seu nome" required type="text"/>
+<input autocomplete="tel" id="leadWhats" placeholder="Seu WhatsApp (com DDD)" required type="tel"/>
+<button class="btn btn-primary" type="submit">Solicitar contato</button>
+</form>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="wrap">CREA-PR 83.338/D-PR · Ponta Grossa, PR · <a href="index.html">Voltar ao site principal</a> · © 2026 Pablo Rodrigo Ribeiro</div>
+</footer>
+
+<a aria-label="Chamar no WhatsApp" class="wa-float" href="https://wa.me/5542999189446" rel="noopener" target="_blank"><span class="pulse-ring"></span><svg viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.33C8.51 21.47 10.2 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.2-.47.03-.94.2-3.15-.66-2.66-1.06-4.36-3.78-4.5-3.96-.13-.18-1.08-1.43-1.08-2.73 0-1.3.68-1.94.92-2.2.24-.27.53-.33.7-.33.18 0 .35 0 .5.01.16.01.38-.06.6.46.22.53.75 1.83.82 1.96.07.13.11.29.02.47-.09.18-.14.29-.27.44-.13.16-.28.35-.4.47-.13.13-.27.27-.12.53.16.27.7 1.15 1.5 1.86 1.03.92 1.9 1.2 2.17 1.34.27.13.42.11.58-.07.16-.18.66-.77.84-1.03.18-.27.35-.22.6-.13.24.09 1.55.73 1.82.86.27.13.44.2.5.31.07.11.07.65-.15 1.27z"></path></svg></a>
+
+<script>
+function enviarLead(e){
+  e.preventDefault();
+  var nome = document.getElementById('leadNome').value.trim();
+  var whats = document.getElementById('leadWhats').value.trim();
+  if(!nome || !whats) return false;
+  var texto = 'Olá, me chamo ' + nome + '. Meu WhatsApp é ' + whats + '. Tenho interesse na consultoria em gestão para escritórios técnicos.';
+  var url = 'https://wa.me/5542999189446?text=' + encodeURIComponent(texto);
+  window.open(url, '_blank');
+  return false;
+}
+</script>
+</body>
+</html>
