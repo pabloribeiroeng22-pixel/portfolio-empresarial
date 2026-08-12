@@ -188,12 +188,16 @@ img,video,.hero-slide,.gallery-item,.sobre-photo,.project-photo,.presenca-photo{
 
 /* ===== diferenciais (dark) ===== */
 .dif-section{background:var(--ink);color:#fff;}
-.dif-section .section-head p{color:rgba(255,255,255,.6);}
-.dif-list{display:grid;grid-template-columns:1fr 1fr;gap:16px 40px;}
-.dif-item{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.1);}
+.dif-section .section-head{max-width:760px;}
+.dif-section .section-head .eyebrow{font-size:14px;letter-spacing:.16em;}
+.dif-section .section-head h2{font-size:clamp(30px,4.6vw,46px);}
+.dif-section .section-head p{color:rgba(255,255,255,.65);font-size:17px;}
+.dif-list{display:grid;grid-template-columns:1fr 1fr;gap:18px 24px;}
+.dif-item{display:flex;gap:16px;align-items:flex-start;padding:22px 24px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);border-radius:14px;transition:background .2s,border-color .2s;}
+.dif-item:hover{background:rgba(37,99,235,.1);border-color:rgba(143,194,255,.3);}
 .dif-item-full{grid-column:1 / -1;}
-.dif-check{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:rgba(37,99,235,.22);color:#8FC2FF;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;}
-.dif-item p{font-size:15.5px;color:rgba(255,255,255,.86);}
+.dif-check{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(37,99,235,.28);color:#8FC2FF;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;}
+.dif-item p{font-size:16.5px;line-height:1.5;color:rgba(255,255,255,.9);}
 @media(max-width:700px){.dif-list{grid-template-columns:1fr;}}
 
 /* ===== números ===== */
@@ -355,6 +359,23 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font
 </div>
 </div>
 </header>
+<section class="section dif-section" id="diferenciais">
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow" style="color:#8FC2FF;">Por que trabalhar comigo</span>
+<h2 style="color:#fff;">Diferenciais</h2>
+</div>
+<div class="dif-list">
+<div class="dif-item reveal"><span class="dif-check">✓</span><p>Mais de 25 anos de experiência em obras públicas e privadas</p></div>
+<div class="dif-item reveal"><span class="dif-check">✓</span><p>Execução de contratos administrativos via concorrência pública para prefeituras</p></div>
+<div class="dif-item reveal"><span class="dif-check">✓</span><p>Responsabilidade técnica registrada em CREA-PR em todos os contratos</p></div>
+<div class="dif-item reveal"><span class="dif-check">✓</span><p>Rede de parceiros e fornecedores especializados por tipo de obra</p></div>
+<div class="dif-item reveal"><span class="dif-check">✓</span><p>Perito judicial habilitado junto ao TJPR</p></div>
+<div class="dif-item reveal"><span class="dif-check">✓</span><p>Atendimento em obras no Paraná, São Paulo e Santa Catarina</p></div>
+<div class="dif-item dif-item-full reveal"><span class="dif-check">✓</span><p>Quem muito faz amplia visão e conhecimento — versatilidade que converge para uma solução completa ao seu problema, abrangendo diversas frentes com o mesmo rigor técnico, do planejamento à entrega</p></div>
+</div>
+</div>
+</section>
 <section class="section" id="sobre">
 <div class="wrap">
 <div class="sobre-grid">
@@ -495,23 +516,6 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:48px 0 28px;font
 </div>
 </div>
 </div></div>
-</div>
-</section>
-<section class="section dif-section" id="diferenciais">
-<div class="wrap">
-<div class="section-head reveal">
-<span class="eyebrow" style="color:#8FC2FF;">Por que trabalhar comigo</span>
-<h2 style="color:#fff;">Diferenciais</h2>
-</div>
-<div class="dif-list">
-<div class="dif-item reveal"><span class="dif-check">✓</span><p>Mais de 25 anos de experiência em obras públicas e privadas</p></div>
-<div class="dif-item reveal"><span class="dif-check">✓</span><p>Execução de contratos administrativos via concorrência pública para prefeituras</p></div>
-<div class="dif-item reveal"><span class="dif-check">✓</span><p>Responsabilidade técnica registrada em CREA-PR em todos os contratos</p></div>
-<div class="dif-item reveal"><span class="dif-check">✓</span><p>Rede de parceiros e fornecedores especializados por tipo de obra</p></div>
-<div class="dif-item reveal"><span class="dif-check">✓</span><p>Perito judicial habilitado junto ao TJPR</p></div>
-<div class="dif-item reveal"><span class="dif-check">✓</span><p>Atendimento em obras no Paraná, São Paulo e Santa Catarina</p></div>
-<div class="dif-item dif-item-full reveal"><span class="dif-check">✓</span><p>Quem muito faz amplia visão e conhecimento — versatilidade que converge para uma solução completa ao seu problema, abrangendo diversas frentes com o mesmo rigor técnico, do planejamento à entrega</p></div>
-</div>
 </div>
 </section>
 <section class="section alt" id="numeros">
