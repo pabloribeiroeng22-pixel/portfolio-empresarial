@@ -1172,10 +1172,14 @@ var AVISO_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyeaPBw8gQe4wpzbkd
     var btn = form.querySelector('button[type="submit"]');
     btn.disabled = true; msg.textContent = 'Enviando...';
     var data = new URLSearchParams({nome:nome, whatsapp:zap, perfil:perfil, origem:'site-materiais'});
-    fetch(AVISO_ENDPOINT, {method:'POST', mode:'no-cors', body:data})
-      .then(function(){ msg.textContent = 'Pronto! Você será avisado no lançamento.'; form.reset(); })
-      .catch(function(){ msg.textContent = 'Não foi possível enviar agora. Tente de novo em instantes.'; })
-      .then(function(){ btn.disabled = false; });
+    // O Google grava ao receber o POST, mas a resposta pode demorar; confirma sem esperar por ela.
+    var falhou = false;
+    fetch(AVISO_ENDPOINT, {method:'POST', mode:'no-cors', body:data, keepalive:true})
+      .catch(function(){ falhou = true; msg.textContent = 'Não foi possível enviar agora. Tente de novo em instantes.'; btn.disabled = false; });
+    setTimeout(function(){
+      if(falhou) return;
+      msg.textContent = 'Pronto! Você será avisado no lançamento.'; form.reset(); btn.disabled = false;
+    }, 1200);
   });
 })();
 
