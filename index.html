@@ -1145,9 +1145,9 @@ document.addEventListener('keydown', function(e){
 
 // Aviso de "material novo" — atualize esta lista a cada novo conteúdo publicado
 // ---- formulário "Quero ser avisado" (grava numa planilha Google via Apps Script) ----
-// Cole aqui o endereço do App da Web gerado no Apps Script (termina em /exec).
-// Enquanto estiver vazio, o envio abre o WhatsApp como antes.
-var AVISO_ENDPOINT = '';
+// Endereço do App da Web (Apps Script da planilha "Avisos – Escritório Sob Controle").
+// Se ficar vazio, o envio volta a abrir o WhatsApp.
+var AVISO_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyeaPBw8gQe4wpzbkddD5RpY3raMr-SWlCity8LJO1FsMayS9quplLn_j-GhCZ75xVX/exec';
 (function(){
   var toggle = document.getElementById('avisoToggle');
   var form = document.getElementById('avisoForm');
